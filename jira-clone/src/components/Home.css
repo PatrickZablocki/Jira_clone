@@ -49,3 +49,36 @@
     text-align: center;
     margin-top: auto;
 }
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px; 
+}
+
+.header-content {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.profile-container {
+    position: relative;
+    margin-left: 10px;
+}
+
+.profile-image {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.profile-image:hover {
+    transform: translateY(-5px);
+    transition: 0.5ms;
+    box-shadow: 10px 10px 10px black;
+}
+
+ul {
+    list-style: none;
+}
