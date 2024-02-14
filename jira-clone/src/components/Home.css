@@ -1,0 +1,51 @@
+.home-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.header {
+    background-color: #0052cc;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.content {
+    display: flex;
+    flex: 1;
+}
+
+.sidebar {
+    background-color: #f4f5f7;
+    width: 200px;
+    padding: 20px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.main-view {
+    flex: 1;
+    padding: 20px;
+}
+
+.task {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.footer {
+    background-color: #0052cc;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    margin-top: auto;
+}
