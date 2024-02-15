@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #4a4a4a; /* Hintergrundfarbe des Screenshots */
+  background-color: #4a4a4a; 
 }
 
 .loginContainer {
@@ -14,6 +14,9 @@
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .logo {
@@ -23,18 +26,19 @@
 .loginTitle {
   margin-bottom: 25px;
   font-size: 24px;
-  color: #172b4d; /* Jira Dunkelblau */
+  color: #172b4d; 
 }
 
 .loginForm {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .emailInput {
   margin-bottom: 20px;
   padding: 12px;
-  border: 2px solid #dfe1e6; /* Eingabefeldrahmen */
+  border: 2px solid #dfe1e6; 
   border-radius: 3px;
   font-size: 16px;
 }
@@ -44,7 +48,7 @@
   padding: 10px 0px;
   border: none;
   border-radius: 3px;
-  background-color: #0052cc; /* Blaue Farbe für den Weiter-Button */
+  background-color: #0052cc; 
   color: white;
   font-size: 16px;
   margin-bottom: 25px;
@@ -52,13 +56,14 @@
 
 .separator {
   font-size: 14px;
-  color: #5e6c84; /* Grauer Text */
+  color: #5e6c84; 
   margin-bottom: 20px;
 }
 
 .providerButtons {
   display: flex;
   flex-direction: column;
+  width: 100%;
   gap: 10px;
 }
 
@@ -70,53 +75,32 @@
   border: none;
   border-radius: 3px;
   font-size: 16px;
-  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 .googleButton {
-  background-color: #ffffff; /* Weißer Hintergrund für den Google-Button */
+  background-color: #ffffff; 
   color: #5e6c84;
-  border: 1px solid #dfe1e6; /* Eingabefeldrahmen */
+  border: 1px solid #dfe1e6; 
 }
 
 .microsoftButton {
-  /* Ähnliche Stile wie für den Google-Button */
+  background-color: #ffffff; 
+  color: #5e6c84;
+  border: 1px solid #dfe1e6;
 }
 
 .appleButton {
-  /* Ähnliche Stile wie für den Google-Button */
+  background-color: #ffffff; 
+  color: #5e6c84;
+  border: 1px solid #dfe1e6;
 }
 
 .slackButton {
-  /* Ähnliche Stile wie für den Google-Button */
-}
-
-.loginFooter {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 14px;
+  background-color: #ffffff; 
   color: #5e6c84;
-  margin-top: 30px;
+  border: 1px solid #dfe1e6;
 }
-
-.footerLink {
-  color: #0052cc;
-  text-decoration: none;
-}
-
-.footerDivider {
-  margin: 0 5px;
-}
-
-.atlassianFooter {
-  color: #5e6c84;
-  margin-top: 40px;
-  font-size: 12px;
-}
-
-/* Beachten Sie, dass Sie für die Buttons Icons von Google, Microsoft, Apple und Slack benötigen, 
-   die hier nicht bereitgestellt wurden, da sie urheberrechtlich geschützt sein können. */
-
-/* Zusätzlich müssen Sie auf Responsive Design achten und die Schriftarten entsprechend anpassen, 
-   damit sie genau wie auf dem Bild aussehen. */
