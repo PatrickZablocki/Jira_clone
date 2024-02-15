@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Importieren Sie useNavigate für die Weiterleitung nach der Registrierung
+import { useNavigate } from 'react-router-dom';
 import styles from './RegisterPage.module.css';
 
 function RegisterPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [registrationError, setRegistrationError] = useState('');
-  const navigate = useNavigate(); // useNavigate-Hook für die Weiterleitung nach der Registrierung
+  const navigate = useNavigate(); 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
