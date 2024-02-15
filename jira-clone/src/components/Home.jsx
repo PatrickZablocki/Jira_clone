@@ -1,17 +1,38 @@
-import{ useState } from 'react';
+import{ useEffect, useState } from 'react';
 import './Home.css';
 
 function Home()
 
         {
             const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+            const [darkMode, setDarkMode] = useState(() => {
+                const savedDarkMode = localStorage.getItem('darkMode');
 
-            const toggleDropdown = () => {
+                    return savedDarkMode ? JSON.parse(savedDarkMode) :false;
+            });
+
+            const toggleDropdown = () => 
+            {
                 setIsDropdownOpen(!isDropdownOpen);
             };
 
+            const toggleDarkMode = () => {
+                const newDarkMode = !darkMode;
+                setDarkMode(newDarkMode);
+
+                localStorage.setItem('darkMode', JSON.stringify(newDarkMode));
+            };
+
+            useEffect(() => {
+                if (darkMode) {
+                    document.body.classList.add('dark-mode');
+                } else {
+                    document.body.classList.remove('dark-mode');
+                }
+            }, [darkMode]);
+
     return (
-        <div className="home-container">
+        <div className={`home-container ${darkMode ? 'dark-mode' : ''}`}>
             {/* Hier beginnt der Header */}
             <header className="header">
                 <div className="header-content">
@@ -36,17 +57,20 @@ function Home()
                 </div>
                 </div>
                 <div className="profile-container">
-                    <button className="settingBtn"><span class="icon">⚙️</span></button>
-                    <button className="LogInBtn"><a href="">Sign in</a></button>
-                    {/* {isDropdownOpen && (
+                    <button className="settingBtn" onClick={toggleDropdown}>
+                        <span class="icon">⚙️</span>
+                    </button>
+                    {/* Hier beginnt das Dropdown menu für die Einstellungen  */}
+                    {isDropdownOpen && (
                         <div className="dropdown-menu">
                             <ul>
-                                <a className= "dropdown-content" href="">Profil Bearbeiten<li></li></a>
                                 <a className= "dropdown-content" href="">Einstellungen<li></li></a>
-                                <a className= "dropdown-content" href="">Ausloggen<li></li></a>
+                                <a className= "dropdown-content" href="" onClick={toggleDarkMode}>Dark Mode<li></li></a>
                             </ul>
                         </div>
-                    )} */}
+                    )}
+                    {/* Hier hört das Dropdown menu auf und beginnt der LogIn Button */}
+                    <button className="LogInBtn"><a href="">Sign in</a></button>
                 </div>
             </header>
             {/* Hier Hört der Header auf */}

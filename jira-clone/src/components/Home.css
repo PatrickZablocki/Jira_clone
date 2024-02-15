@@ -110,8 +110,69 @@ nav{
 .settingBtn,
 .LogInBtn {
     margin-right: 12px;
+    cursor: pointer;
+}
+/* Hier eine Extra Styling für das Dropdown menu */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    display: inline-block;
+}
+
+.dropdown-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-menu ul li {
+    padding: 5px 0;
+}
+
+.dropdown-menu ul li a {
+    color: #333;
+    text-decoration: none;
+}
+
+.dropdown-menu ul li a:hover {
+    color: #000;
+    font-weight: bold;
 }
 /* HIer endet das Styling für den Header und die Navabr */
+/* Extra Style für den Dark Mode */
+.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+.dark-mode .header {
+    background-color: #111;
+    color: #fff;
+}
+
+.dark-mode .navbar li a {
+    color: #fff;
+}
+
+.dark-mode .dropdown-menu {
+    background-color: #222;
+    color: #fff;
+}
+.dark-mode .dropdown-menu a{
+    color: white;
+}
+.dark-mode .Sidebar{
+    background-color: #222;
+    color: #fff;
+}
+.dark-mode .Sidebar li a{
+    color: white;
+}
+/*  Hier beginnt das Styling für die Sidebar */
 .Sidebar {
     background: #ededed;
     width: 200px;
@@ -131,6 +192,7 @@ nav{
     width: calc(100% - 40px);
     display: block;
     padding: 10px 20px;
+    border: 2px solid #0052cc;
 }
 .Sidebar li a {
     text-decoration: none;
@@ -158,8 +220,6 @@ nav{
 .Sidebar ul li a .icon {
     margin-right: 10px;
 }
-/*  Hier beginnt das Styling für die Sidebar */
-
 /* Hier endet das Styling für die Sidebar */
 
 /* Hier beginnt der Main Content */
