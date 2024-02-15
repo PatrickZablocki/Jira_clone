@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './LoginPage.module.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGoogle, faMicrosoft, faApple, faSlack } from '@fortawesome/free-brands-svg-icons';
 
 function LoginPage() {
   const [username, setUsername] = useState('');
@@ -13,7 +11,6 @@ function LoginPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Simulieren einer API-Anfrage zum Login
       const response = await fetch('http://localhost:5000/users');
       if (response.ok) {
         const users = await response.json();
@@ -35,64 +32,71 @@ function LoginPage() {
 
   const handleGoogleSignIn = () => {
     console.log('Google-Anmeldung durchgeführt');
-    // Implementieren Sie hier die Google-Anmeldefunktionalität
   };
 
   const handleMicrosoftSignIn = () => {
     console.log('Microsoft-Anmeldung durchgeführt');
-    // Implementieren Sie hier die Microsoft-Anmeldefunktionalität
   };
 
   const handleAppleSignIn = () => {
     console.log('Apple-Anmeldung durchgeführt');
-    // Implementieren Sie hier die Apple-Anmeldefunktionalität
   };
 
   const handleSlackSignIn = () => {
     console.log('Slack-Anmeldung durchgeführt');
-    // Implementieren Sie hier die Slack-Anmeldefunktionalität
   };
 
   const navigateToRegister = () => {
     navigate('/register');
   };
-
   return (
     <div className={styles.loginPage}>
       <form onSubmit={handleSubmit} className={styles.formContainer}>
-        <h2>Login</h2>
+      <div className={styles.logoContainer}>
+          <img src="https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.541/atlaslogo.5491d009.svg" alt="Logo" className={styles.logoImage} />
+        </div>
+        <h4>Einloggen, um fortzufahren</h4>
         <div className={styles.formGroup}>
-          <label className={styles.label}>Username</label>
+          <label className={styles.label}></label>
           <input
-            type="text"
+            type="email" 
             className={styles.input}
+            placeholder="E-Mail-Adresse eingeben" 
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
         </div>
         <div className={styles.formGroup}>
-          <label className={styles.label}>Password</label>
+          <label className={styles.label}></label>
           <input
             type="password"
             className={styles.input}
+            placeholder="Passwort eingeben" 
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
+            onChange={(e) => setPassword(e.target.value)}/>
         </div>
         {loginError && <div className={styles.errorMessage}>{loginError}</div>}
-        <button type="submit" className={styles.submitButton}>Login</button>
+        <button type="submit" className={styles.submitButton}>Weiter</button>
+
+        <div className={styles.continueWithText}> <h4>Oder fortfahren mit:</h4></div>
+
+
         <div className={styles.alternativeOptions}>
           <button type="button" onClick={handleGoogleSignIn} className={styles.googleButton}>
-            <FontAwesomeIcon icon={faGoogle} /> Google
+            <img src="https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.541/google-logo.5867462c.svg" alt="Google" className={styles.authImage} />
+            Google
           </button>
           <button type="button" onClick={handleMicrosoftSignIn} className={styles.microsoftButton}>
-            <FontAwesomeIcon icon={faMicrosoft} /> Microsoft
+            <img src="https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.541/microsoft-logo.c73d8dca.svg" alt="Microsoft" className={styles.authImage} />
+            Microsoft
           </button>
           <button type="button" onClick={handleAppleSignIn} className={styles.appleButton}>
-            <FontAwesomeIcon icon={faApple} /> Apple
+            <img src="https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.541/apple-logo.54e0d711.svg" alt="Apple" className={styles.authImage} />
+            Apple
           </button>
           <button type="button" onClick={handleSlackSignIn} className={styles.slackButton}>
-            <FontAwesomeIcon icon={faSlack} /> Slack
+            <img src="https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.541/slack-logo.5d730c10.svg" alt="Slack" className={styles.authImage} />
+            Slack
           </button>
         </div>
         <div className={styles.loginFooter}>
@@ -100,9 +104,14 @@ function LoginPage() {
           <span>·</span>
           <a href="#" onClick={navigateToRegister}>Ein Konto erstellen</a>
         </div>
+        <div className={styles.footerImageContainer}>
+        <img src="/LogoImage/logoatlassin.png" alt="Atlassian Logo" className={styles.footerImage} />
+        <p className={styles.accountText}>Ein Konto für Trello, Jira, Confluence und mehr.</p>
+        <p className={styles.privacyPolicyText}>Datenschutzrichtlinie • Benutzerhinweis</p>
+        </div>
       </form>
     </div>
   );
 }
 
-export default LoginPage;
+export default LoginPage; 
