@@ -2,7 +2,7 @@ import{ useEffect, useState } from 'react';
 import './Home.css';
 
 function Home()
-
+            // Das ist die Funktion für das DropDown Menu und für den Dark Mode
         {
             const [isDropdownOpen, setIsDropdownOpen] = useState(false);
             const [darkMode, setDarkMode] = useState(() => {
@@ -30,6 +30,10 @@ function Home()
                     document.body.classList.remove('dark-mode');
                 }
             }, [darkMode]);
+
+            // Hier schreibe ich die Funktion um weitergeleitet zu werden
+
+
 
     return (
         <div className={`home-container ${darkMode ? 'dark-mode' : ''}`}>
@@ -65,8 +69,9 @@ function Home()
                         <div className="dropdown-menu">
                             <ul>
                                 <h2>Einstellungen</h2>
-                                <a className= "dropdown-content" href="">Atlasian-Kontoeinstellungen<li></li></a>
-                                <a className= "dropdown-content" href="">Persöhnliche Jira-Einstellungen<li></li></a>
+                                <a className= "dropdown-content" href="#">Atlasian-Kontoeinstellungen<li></li></a>
+                                <a className= "dropdown-content" href="">
+                                    Persöhnliche Jira-Einstellungen<li></li></a>
                                 <h2>Jira-Einstellungen</h2>
                                 <a className= "dropdown-content" href="">System<li></li></a>
                                 <a className= "dropdown-content" href="">Produkte<li></li></a>

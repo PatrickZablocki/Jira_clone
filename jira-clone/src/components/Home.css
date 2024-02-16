@@ -122,6 +122,8 @@ nav{
     border-radius: 5px;
     padding: 10px;
     display: inline-block;
+    width: 500px;
+    height: auto;
 }
 .dropdown-menu h2{
     color: #000;
@@ -144,6 +146,14 @@ nav{
 .dropdown-menu ul li a:hover {
     color: #000;
     font-weight: bold;
+
+}
+.dropdown-menu a:hover{
+    background:#88888825;
+    width: calc(100% - 40px);
+    display: block;
+    padding: 10px 20px;
+    border: 2px solid #888;
 }
 #DarkMode{
     font-size: 1.2rem;
