@@ -38,7 +38,7 @@ function RegisterPage() {
     <div className={styles.registerPage}>
       <form onSubmit={handleSubmit} className={styles.formContainer}>
         <div className={styles.logoContainer}>
-            <img src="/LogoImage/Atlassianblau.png" alt="Logo" className={styles.logoImage} />
+          <img src="/LogoImage/Atlassianblau.png" alt="Logo" className={styles.logoImage} />
         </div>
         <h4>Registrieren Sie sich, um fortzufahren</h4>
         <div className={styles.formGroup}>
@@ -59,6 +59,13 @@ function RegisterPage() {
             onChange={(e) => setPassword(e.target.value)}/>
         </div>
         {registrationError && <div className={styles.errorMessage}>{registrationError}</div>}
+        
+        <div className={styles.registrationText}>
+  Mit meiner Registrierung bestätige ich, dass ich die 
+  <span className={styles.termsLink}>Cloud-Nutzungsbedingungen</span> von Atlassian akzeptiere und die 
+  <span className={styles.privacyLink}>Datenschutzrichtlinie</span> anerkenne.
+</div>
+
         <button type="submit" className={styles.submitButton}>Registrieren</button>
 
         <div className={styles.continueWithText}><h4>Oder fortfahren mit:</h4></div>
@@ -81,16 +88,20 @@ function RegisterPage() {
             Slack
           </button>
         </div>
-
         <div className={styles.registerFooter}>
-  <a href="#" onClick={navigateToLogin} className={styles.underlineLink}>Du hast bereits ein Atlassian-Konto? Einloggen</a>
-</div>
-
-        <div className={styles.footerImageContainer}>
-          <img src="/LogoImage/logoatlassin.png" alt="Atlassian Logo" className={styles.footerImage} />
-          <p className={styles.accountText}>Ein Konto für Jira, Confluence, Trello und mehr.</p>
-          <p className={styles.privacyPolicyText}>Diese Seite ist durch reCAPTCHA geschützt und es gelten die Datenschutzrichtlinie sowie die Nutzungsbedingungen von Google.</p>
+        <a href="#" onClick={navigateToLogin} className={styles.underlineLink}>Du hast bereits ein Atlassian-Konto? Einloggen</a>
         </div>
+        <div className={styles.footerImageContainer}>
+  <img src="/LogoImage/logoatlassin.png" alt="Atlassian Logo" className={styles.footerImage} />
+  <p className={styles.accountText}>
+    Ein Konto für Jira, Confluence, Trello und <span className={styles.blueText}>mehr</span>.
+  </p>
+  <p className={styles.privacyPolicyText}>
+  Diese Seite ist durch reCAPTCHA geschützt und es gelten die 
+  <span className={styles.privacyLink}>Datenschutzrichtlinie</span> sowie die 
+  <span className={styles.termsLink}>Nutzungsbedingungen</span> von Google.
+</p>
+</div>
       </form>
     </div>
   );

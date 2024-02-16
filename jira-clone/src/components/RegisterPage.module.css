@@ -97,15 +97,13 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  /* Entferne die Linie unter dem Link */
   margin-top: 10px;
   margin-bottom: 25px; 
 }
 
 .registerFooter a {
-  color: #5e6c84; 
+  color: #0052cc; 
   text-decoration: none; 
-  /* Entferne den Stil für den unterstrichenen Link */
 }
 
 .errorMessage {
@@ -126,7 +124,7 @@
 
 .logoImage {
   max-width: 100%; 
-  height: auto; /* Anpassung, damit das Logo nicht gestreckt wird */
+  height: auto; 
 }
 
 .footerImage {
@@ -156,4 +154,38 @@
 .footer {
   text-align: center;
   margin-top: 20px; 
+}
+
+.registrationText {
+  font-size: 12px;
+  color: #707070;
+  text-align: left;
+  margin-top: 20px; 
+  margin-bottom: 15px; 
+}
+
+.blueText {
+  color: #0052CC; 
+}
+
+.termsLink {
+  color: #0052CC; 
+}
+
+.privacyLink {
+  color: #0052CC; 
+}
+
+.termsLink:hover,
+.privacyLink:hover {
+  text-decoration: underline; 
+}
+
+.underlineLink {
+  color: #0052CC; 
+  text-decoration: none; 
+}
+
+.underlineLink:hover {
+  text-decoration: underline;
 }
