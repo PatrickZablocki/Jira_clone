@@ -157,8 +157,6 @@ nav{
 }
 #DarkMode{
     font-size: 1.2rem;
-    border: 1px solid #327dec;
-    background: #327dec;
     border-radius: 10px;
     font-weight: 600;
 }
