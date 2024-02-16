@@ -99,14 +99,17 @@ function LoginPage() {
             Slack
           </button>
         </div>
+        
         <div className={styles.loginFooter}>
-          <a href="#" onClick={() => {}}>Sie können sich nicht einloggen?</a>
-          <span>·</span>
-          <a href="#" onClick={navigateToRegister}>Ein Konto erstellen</a>
-        </div>
+  <a href="#" onClick={() => {}} className={`${styles.blueText} ${styles.loginFooterLink}`}>Sie können sich nicht einloggen?</a>
+  <span>·</span>
+  <a href="#" onClick={navigateToRegister} className={`${styles.blueText} ${styles.loginFooterLink}`}>Ein Konto erstellen</a>
+</div>
+
         <div className={styles.footerImageContainer}>
         <img src="/LogoImage/logoatlassin.png" alt="Atlassian Logo" className={styles.footerImage} />
-        <p className={styles.accountText}>Ein Konto für Trello, Jira, Confluence und mehr.</p>
+        <p className={styles.accountText}>
+          Ein Konto für Trello, Jira, Confluence und <span className={styles.blueText}>mehr</span>.</p>
         <p className={styles.privacyPolicyText}>Datenschutzrichtlinie • Benutzerhinweis</p>
         </div>
       </form>
