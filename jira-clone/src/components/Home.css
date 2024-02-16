@@ -116,14 +116,16 @@ nav{
 .dropdown-menu {
     position: absolute;
     top: 100%;
-    left: 0;
+    right: 87px;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 10px;
     display: inline-block;
 }
-
+.dropdown-menu h2{
+    color: #000;
+}
 .dropdown-menu ul {
     list-style: none;
     padding: 0;
@@ -142,6 +144,13 @@ nav{
 .dropdown-menu ul li a:hover {
     color: #000;
     font-weight: bold;
+}
+#DarkMode{
+    font-size: 1.2rem;
+    border: 1px solid #327dec;
+    background: #327dec;
+    border-radius: 10px;
+    font-weight: 600;
 }
 /* HIer endet das Styling für den Header und die Navabr */
 /* Extra Style für den Dark Mode */
@@ -171,6 +180,26 @@ nav{
 }
 .dark-mode .Sidebar li a{
     color: white;
+}
+.dark-mode .dropdown-menu h2{
+    color: #fff;
+}
+/* Extra Einstellung für das Zahnrad */
+.icon {
+    display: inline-block;
+    font-size: 18px;
+    transition: transform 0.5s ease;
+}
+.icon:hover {
+    animation: rotate 2s linear infinite;
+}
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 /*  Hier beginnt das Styling für die Sidebar */
 .Sidebar {

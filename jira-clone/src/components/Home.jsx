@@ -64,8 +64,16 @@ function Home()
                     {isDropdownOpen && (
                         <div className="dropdown-menu">
                             <ul>
-                                <a className= "dropdown-content" href="">Einstellungen<li></li></a>
-                                <a className= "dropdown-content" href="" onClick={toggleDarkMode}>Dark Mode<li></li></a>
+                                <h2>Einstellungen</h2>
+                                <a className= "dropdown-content" href="">Atlasian-Kontoeinstellungen<li></li></a>
+                                <a className= "dropdown-content" href="">Persöhnliche Jira-Einstellungen<li></li></a>
+                                <h2>Jira-Einstellungen</h2>
+                                <a className= "dropdown-content" href="">System<li></li></a>
+                                <a className= "dropdown-content" href="">Produkte<li></li></a>
+                                <a className= "dropdown-content" href="">Projekte<li></li></a>
+                                <a className= "dropdown-content" href="">Vorgänge<li></li></a>
+                                <a className= "dropdown-content" href="">Apps<li></li></a>
+                                <a className= "dropdown-content" id="DarkMode" href="" onClick={toggleDarkMode}>Dark Mode<li></li></a>
                             </ul>
                         </div>
                     )}
