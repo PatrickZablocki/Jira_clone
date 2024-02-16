@@ -1,5 +1,11 @@
 import{ useState } from 'react';
 import './Home.css';
+import Body from "./Body";
+import { Provider } from "react-redux";
+import store from "../store/index";
+import themeContext from "../context/ThemeContext";
+
+
 
 function Home()
 
@@ -9,6 +15,8 @@ function Home()
             const toggleDropdown = () => {
                 setIsDropdownOpen(!isDropdownOpen);
             };
+
+            const [theme,setTheme] = useState('light')
 
     return (
         <div className="home-container">
@@ -66,15 +74,14 @@ function Home()
             {/* HIer endet die Sidebar */}
             {/* Ab hier beginnt der Main Content */}
                 <div className="main-view">
-                    <h2>Backlog</h2>
-                    <div className="task">
-                        <h3>Task 1</h3>
-                        <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
-                    <div className="task">
-                        <h3>Task 2</h3>
-                        <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
+                <themeContext.Provider value={{ theme: theme, setTheme: setTheme }}>
+                        <Provider store={store}>
+
+
+                            <Body />
+
+                        </Provider>
+                    </themeContext.Provider>
                 </div>
             </div>
             {/* Hier endet der Main content */}
