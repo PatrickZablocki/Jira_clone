@@ -106,7 +106,7 @@ function LoginPage() {
         <div className={styles.footerImageContainer}>
           <img src="/LogoImage/logoatlassin.png" alt="Atlassian Logo" className={styles.footerImage} />
           <p className={styles.accountText}>
-            Ein Konto für Trello, Jira, Confluence und <span className={styles.blueText}>mehr</span>.
+          Ein Konto für Jira, Confluence, Trello und <span className={styles.blueText}>mehr</span>.
           </p>
           <p className={styles.privacyPolicyText}>Datenschutzrichtlinie • Benutzerhinweis</p>
         </div>
