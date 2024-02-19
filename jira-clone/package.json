@@ -22,6 +22,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start:dev": "concurrently \"npm run start\" \"json-server --watch db.json --port 3001\" \"nodemon server.js\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -46,6 +47,7 @@
   },
   "devDependencies": {
     "concurrently": "^8.2.2",
+    "json-server": "^1.0.0-alpha.23",
     "nodemon": "^3.0.3"
   }
 }
