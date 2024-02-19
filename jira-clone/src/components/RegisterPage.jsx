@@ -77,22 +77,30 @@ function RegisterPage() {
                 <div className={styles.continueWithText}><h4>Oder fortfahren mit:</h4></div>
                 <div className={styles.alternativeOptions}>
                     {/* Alternative Anmeldemethoden */}
-                    <button type="button" className={styles.googleButton} onClick={() => alert('Google Login')}>
+                    <a href="https://accounts.google.com/signin">
+                        <button type="button" className={styles.googleButton} onClick={() => alert('Google Login')}>
                         <img src="https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.541/google-logo.5867462c.svg" alt="Google" className={styles.authImage} />
                         Google
                     </button>
-                    <button type="button" className={styles.microsoftButton} onClick={() => alert('Microsoft Login')}>
+                    </a>
+                    <a href="https://login.microsoftonline.com">
+                        <button type="button" className={styles.microsoftButton} onClick={() => alert('Microsoft Login')}>
                         <img src="https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.541/microsoft-logo.c73d8dca.svg" alt="Microsoft" className={styles.authImage} />
                         Microsoft
                     </button>
-                    <button type="button" className={styles.appleButton} onClick={() => alert('Apple Login')}>
+                    </a>
+                    <a href="https://appleid.apple.com">
+                        <button type="button" className={styles.appleButton} onClick={() => alert('Apple Login')}>
                         <img src="https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.541/apple-logo.54e0d711.svg" alt="Apple" className={styles.authImage} />
                         Apple
                     </button>
-                    <button type="button" className={styles.slackButton} onClick={() => alert('Slack Login')}>
+                    </a>
+                    <a href="https://slack.com/signin">
+                        <button type="button" className={styles.slackButton} onClick={() => alert('Slack Login')}>
                         <img src="https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.541/slack-logo.5d730c10.svg" alt="Slack" className={styles.authImage} />
                         Slack
                     </button>
+                    </a>
                 </div>
                 <div className={styles.registerFooter}>
                     <a href="#" onClick={navigateToLogin} className={styles.underlineLink}>Du hast bereits ein Atlassian-Konto? Einloggen</a>

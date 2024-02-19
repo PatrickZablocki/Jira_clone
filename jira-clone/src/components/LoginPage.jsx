@@ -74,31 +74,31 @@ function LoginPage() {
         {loginError && <div className={styles.errorMessage}>{loginError}</div>}
         <button type="submit" className={styles.submitButton}>Weiter</button>
         <div className={styles.continueWithText}> <h4>Oder fortfahren mit:</h4></div>
-        <div className={styles.alternativeOptions}>
-          <button type="button" onClick={handleGoogleSignIn} className={styles.googleButton}>
-            <a href="https://www.google.com">
-            <img src="https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.541/google-logo.5867462c.svg" alt="Google" className={styles.authImage} />
-            Google
-            </a>
-          </button>
-          <button type="button" onClick={handleMicrosoftSignIn} className={styles.microsoftButton}>
-            <a href="https://www.microsoft.com">
-            <img src="https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.541/microsoft-logo.c73d8dca.svg" alt="Microsoft" className={styles.authImage} />
-            Microsoft
-            </a>
-          </button>
-          <button type="button" onClick={handleAppleSignIn} className={styles.appleButton}>
-            <a href="https://www.apple.com">
-            <img src="https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.541/apple-logo.54e0d711.svg" alt="Apple" className={styles.authImage} />
-            Apple
-            </a>
-          </button>
-          <button type="button" onClick={handleSlackSignIn} className={styles.slackButton}>
-            <a href="https://www.slack.com">
-            <img src="https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.541/slack-logo.5d730c10.svg" alt="Slack" className={styles.authImage} />
-            Slack
-            </a>
-          </button>
+        <div className={styles.alternativeOptions}> 
+        <a href="https://accounts.google.com/signin">
+                        <button type="button" className={styles.googleButton} onClick={() => alert('Google Login')}>
+                        <img src="https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.541/google-logo.5867462c.svg" alt="Google" className={styles.authImage} />
+                        Google
+                    </button>
+                    </a>
+                    <a href="https://login.microsoftonline.com">
+                        <button type="button" className={styles.microsoftButton} onClick={() => alert('Microsoft Login')}>
+                        <img src="https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.541/microsoft-logo.c73d8dca.svg" alt="Microsoft" className={styles.authImage} />
+                        Microsoft
+                    </button>
+                    </a>
+                    <a href="https://appleid.apple.com">
+                        <button type="button" className={styles.appleButton} onClick={() => alert('Apple Login')}>
+                        <img src="https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.541/apple-logo.54e0d711.svg" alt="Apple" className={styles.authImage} />
+                        Apple
+                    </button>
+                    </a>
+                    <a href="https://slack.com/signin">
+                        <button type="button" className={styles.slackButton} onClick={() => alert('Slack Login')}>
+                        <img src="https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.541/slack-logo.5d730c10.svg" alt="Slack" className={styles.authImage} />
+                        Slack
+                    </button>
+                    </a>
         </div>
         <div className={styles.loginFooter}>
           <a href="#" onClick={() => {}} className={`${styles.blueText} ${styles.loginFooterLink}`}>Sie können sich nicht einloggen?</a>
