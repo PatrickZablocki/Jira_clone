@@ -7,6 +7,7 @@ function Home()
             const [isDropdownOpen, setIsDropdownOpen] = useState(false);
             const [isBellDropdownOpen, setIsBellDropdownOpen] = useState(false);
             const [isQuestionDropdownOpen, setIsQuestionDropdownOpen] = useState(false);
+            const [isFeedbackPopupOpen, setIsFeedbackPopupOpen] = useState(false);
             const [darkMode, setDarkMode] = useState(() => {
                 const savedDarkMode = localStorage.getItem('darkMode');
 
@@ -24,6 +25,13 @@ function Home()
             const toggleQuestionDropdown = () => {
                 setIsQuestionDropdownOpen (!isQuestionDropdownOpen);
             }
+
+            // Die Funktion für das PoP Up
+
+            const toggleFeedbackPopup = () => {
+            setIsFeedbackPopupOpen(!isFeedbackPopupOpen);
+            setIsQuestionDropdownOpen(false);
+            };
 
             const toggleDarkMode = () => {
                 const newDarkMode = !darkMode;
@@ -87,14 +95,14 @@ function Home()
                         <div className="questionDropdown">
                             <h2>Help</h2>
                             <ul>
-                                <li><a href="">Erfahren Sie, was an Jira geändert wurde</a></li>
-                                <li><a href="">Komplette Dokumenation durchsuchen</a></li>
-                                <li><a href="">Mit Atlassian University lernen</a></li>
-                                <li><a href="">Community-Forum fragen</a></li>
-                                <li><a href="">Support kontaktieren</a></li>
-                                <li><a href="">Geben Sie Feedback zu Jira</a></li>
+                                <li><a href="https://confluence.atlassian.com/cloud/blog">Erfahren Sie, was an Jira geändert wurde</a></li>
+                                <li><a href="https://confluence.atlassian.com/alldoc/">Komplette Dokumenation durchsuchen</a></li>
+                                <li><a href="https://university.atlassian.com/student/catalog?utm_source=jira-help&utm_medium=inapp&utm_campaign=P:uni-training*O:university*H:fy23q4*I:in-app-help*">Mit Atlassian University lernen</a></li>
+                                <li><a href="https://community.atlassian.com/">Community-Forum fragen</a></li>
+                                <li><a href="https://id.atlassian.com/login/authorize?continue=https%3A%2F%2Fsupport.atlassian.com%2Fcontact%2F%3Fpostauth%3Dtrue%23%2F&token=eyJraWQiOiJtaWNyb3Mvc2lnbi1pbi1zZXJ2aWNlL3IxcTFzdW5xN28ybHMxNXIiLCJhbGciOiJSUzI1NiJ9.eyJtYXJrZWRWZXJpZmllZCI6ImZhbHNlIiwibG9naW5UeXBlIjoic2Vzc2lvblJlZnJlc2giLCJpc3MiOiJtaWNyb3Mvc2lnbi1pbi1zZXJ2aWNlIiwidXNlcklkIjoiNzEyMDIwOjQ5YjZmNjE0LTQyOGQtNDRiMy04NDk1LWU1ZWE3NDRkMWYwNSIsImlzU2xhY2tBcHBTb3VyY2UiOiJmYWxzZSIsImF1ZCI6Imxpbmstc2lnbmF0dXJlLXZhbGlkYXRvciIsIm5iZiI6MTcwODMzNjQyOSwic2NvcGUiOiJMb2dpbiIsImVucmljaE9yZ0lkIjoiZmFsc2UiLCJleHAiOjE3MDgzMzY1NDksImlhdCI6MTcwODMzNjQyOSwianRpIjoiYmRjODJlZDMtZDM3Yi00MTI0LWFjMDAtNDc1NTlhZTRlZmFkIiwiaGFzaGVkQ3NyZlRva2VuIjoiZTIxYjJhZmU4ZjZlMjllYTBhNWZiMDE2ZWMxZjYwNGQ4Mjk0ZjlkY2Y3ZTc4M2NlMTI4ZGFkMjg1OGFjOWNkNiJ9.hjd_db1wlFDB8VGp3vRZJgo0LN3fXNji3h0mr7dyyBT_5IKwC0igwYKWyBGJUK_I4liY_3VH99ODj-O01uuDOcRWzzX8i54nAjFIEKtzlm4YTiXLqE72zAtezEG7t1OBgpzOyx9XX_10nUIZ1CeTSPjE0AeLy-buP4lF6FlRcZ8H8sm7PChal_qMBjilUeNVSj9p0nMmL8n9yffbwEjadfLZ1BzyAMfJ5tEVAFanTXfPPtINCqOZt7X6bO0Ab1pGoVCzuEI9Izg3k3O_NF6419r13ayHB1G7scEG-Bf9INqcsY8JPMfPAZtNhIFUSWnWyPP2Q3RLBY_y9XKkYL8-3w&state=eyJoYXNoZWRDc3JmVG9rZW4iOiJjMzYxYTU1MThjNWE4ZGE3NDVkMmRjYWNhMTM1Mjk4M2UwZmJiZjgwOWRlMmIxNjZjMTE2NDAxMjk4OTFmNzRiIn0%3D">Support kontaktieren</a></li>
+                                <li><a href="" onClick={toggleFeedbackPopup}>Geben Sie Feedback zu Jira</a></li>
                                 <li><a href="">Tastenkombinationen</a></li>
-                                <li><a href="">Jira für Mobilegeräte erhalten</a></li>
+                                <li><a href="https://id.atlassian.com/login/authorize?continue=https%3A%2F%2Fsupport.atlassian.com%2Fcontact%2F%3Fpostauth%3Dtrue%23%2F&token=eyJraWQiOiJtaWNyb3Mvc2lnbi1pbi1zZXJ2aWNlL3IxcTFzdW5xN28ybHMxNXIiLCJhbGciOiJSUzI1NiJ9.eyJtYXJrZWRWZXJpZmllZCI6ImZhbHNlIiwibG9naW5UeXBlIjoic2Vzc2lvblJlZnJlc2giLCJpc3MiOiJtaWNyb3Mvc2lnbi1pbi1zZXJ2aWNlIiwidXNlcklkIjoiNzEyMDIwOjQ5YjZmNjE0LTQyOGQtNDRiMy04NDk1LWU1ZWE3NDRkMWYwNSIsImlzU2xhY2tBcHBTb3VyY2UiOiJmYWxzZSIsImF1ZCI6Imxpbmstc2lnbmF0dXJlLXZhbGlkYXRvciIsIm5iZiI6MTcwODMzNjQyOSwic2NvcGUiOiJMb2dpbiIsImVucmljaE9yZ0lkIjoiZmFsc2UiLCJleHAiOjE3MDgzMzY1NDksImlhdCI6MTcwODMzNjQyOSwianRpIjoiYmRjODJlZDMtZDM3Yi00MTI0LWFjMDAtNDc1NTlhZTRlZmFkIiwiaGFzaGVkQ3NyZlRva2VuIjoiZTIxYjJhZmU4ZjZlMjllYTBhNWZiMDE2ZWMxZjYwNGQ4Mjk0ZjlkY2Y3ZTc4M2NlMTI4ZGFkMjg1OGFjOWNkNiJ9.hjd_db1wlFDB8VGp3vRZJgo0LN3fXNji3h0mr7dyyBT_5IKwC0igwYKWyBGJUK_I4liY_3VH99ODj-O01uuDOcRWzzX8i54nAjFIEKtzlm4YTiXLqE72zAtezEG7t1OBgpzOyx9XX_10nUIZ1CeTSPjE0AeLy-buP4lF6FlRcZ8H8sm7PChal_qMBjilUeNVSj9p0nMmL8n9yffbwEjadfLZ1BzyAMfJ5tEVAFanTXfPPtINCqOZt7X6bO0Ab1pGoVCzuEI9Izg3k3O_NF6419r13ayHB1G7scEG-Bf9INqcsY8JPMfPAZtNhIFUSWnWyPP2Q3RLBY_y9XKkYL8-3w&state=eyJoYXNoZWRDc3JmVG9rZW4iOiJjMzYxYTU1MThjNWE4ZGE3NDVkMmRjYWNhMTM1Mjk4M2UwZmJiZjgwOWRlMmIxNjZjMTE2NDAxMjk4OTFmNzRiIn0%3D">Jira für Mobilegeräte erhalten</a></li>
                             </ul>
                         </div>
                     )}
