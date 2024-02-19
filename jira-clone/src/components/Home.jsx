@@ -1,19 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Home.css'; // Stildefinitionen für die Home-Seite
 
 function HomePage() {
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false); // Zustand für das Dropdown-Menü
+    const [isLoggedIn, setIsLoggedIn] = useState(false); // Zustand für den Anmeldestatus
     const navigate = useNavigate(); // Hook zum Navigieren zwischen Seiten
 
-    // Funktion zum Umschalten des Dropdown-Menüs
-    const toggleDropdown = () => {
-        setIsDropdownOpen(!isDropdownOpen); // Umschalten des Dropdown-Zustands
-    };
+    // Effekt, der prüft, ob der Benutzer angemeldet ist
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            setIsLoggedIn(true);
+        } else {
+            setIsLoggedIn(false);
+        }
+    }, []);
 
     // Funktion zum Abmelden und Navigieren zur Login-Seite
     const handleLogout = () => {
         localStorage.removeItem('token'); // Entfernen des Tokens aus dem Local Storage
+        setIsLoggedIn(false); // Aktualisieren des Anmeldestatus
+        navigate('/'); // Navigieren zur Home-Seite
+    };
+
+    // Funktion zum Navigieren zur Login-Seite
+    const handleSignIn = () => {
         navigate('/login'); // Navigieren zur Login-Seite
     };
 
@@ -33,7 +44,6 @@ function HomePage() {
                             <li><a href="#">Filters</a></li>
                             <li><a href="#">Dashboard</a></li>
                             <li><a href="#">People</a></li>
-                            <button className="CreateBtn">Create</button> {/* Button zum Erstellen */}
                         </ul>
                     </nav>
                     <div className="Search"> {/* Suchbereich */}
@@ -43,7 +53,7 @@ function HomePage() {
                 </div>
                 <div className="profile-container"> {/* Profilbereich */}
                     <button className="settingBtn"><span className="icon">⚙️</span></button> {/* Einstellungsbutton */}
-                    <button className="LogInBtn" onClick={handleLogout}>Sign in</button> {/* Anmeldebutton */}
+                    {isLoggedIn ? <button className="LogInBtn" onClick={handleLogout}>Log out</button> : <button className="LogInBtn" onClick={handleSignIn}>Sign in</button>} {/* Sign in oder Logout Button basierend auf dem Anmeldestatus */}
                 </div>
             </header>
             <div className="content"> {/* Hauptinhalt der Seite */}
