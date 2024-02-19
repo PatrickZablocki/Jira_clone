@@ -11,14 +11,25 @@ function RegisterPage() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const users = JSON.parse(localStorage.getItem('users')) || [];
-            if (users.find(user => user.username === username)) {
+            const response = await fetch('http://localhost:5000/users');
+            const users = await response.json();
+            if (users.some(user => user.username === username)) {
                 setRegistrationError('Benutzername bereits vergeben.');
                 return;
             }
-            localStorage.setItem('users', JSON.stringify([...users, { username, password }]));
-            console.log('Registrierung erfolgreich');
-            navigate('/login'); // Navigiere zur Login-Seite nach erfolgreicher Registrierung
+            const addUserResponse = await fetch('http://localhost:5000/users', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username, password }),
+            });
+            if (addUserResponse.ok) {
+                console.log('Registrierung erfolgreich');
+                navigate('/login');
+            } else {
+                setRegistrationError('Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.');
+            }
         } catch (error) {
             console.error('Fehler bei der Registrierung', error);
             setRegistrationError('Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.');
@@ -43,6 +54,7 @@ function RegisterPage() {
                         placeholder="E-Mail-Adresse eingeben"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
+                        required
                     />
                 </div>
                 <div className={styles.formGroup}>
@@ -52,6 +64,7 @@ function RegisterPage() {
                         placeholder="Passwort eingeben"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
+                        required
                     />
                 </div>
                 {registrationError && <div className={styles.errorMessage}>{registrationError}</div>}
@@ -63,29 +76,22 @@ function RegisterPage() {
                 <button type="submit" className={styles.submitButton}>Registrieren</button>
                 <div className={styles.continueWithText}><h4>Oder fortfahren mit:</h4></div>
                 <div className={styles.alternativeOptions}>
-                    <button type="button" className={styles.googleButton}>
-                        <a href="https://www.google.com">
+                    {/* Alternative Anmeldemethoden */}
+                    <button type="button" className={styles.googleButton} onClick={() => alert('Google Login')}>
                         <img src="https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.541/google-logo.5867462c.svg" alt="Google" className={styles.authImage} />
                         Google
-                        </a>
                     </button>
-                    <button type="button" className={styles.microsoftButton}>
-                        <a href="https://www.microsoft.com">  
+                    <button type="button" className={styles.microsoftButton} onClick={() => alert('Microsoft Login')}>
                         <img src="https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.541/microsoft-logo.c73d8dca.svg" alt="Microsoft" className={styles.authImage} />
                         Microsoft
-                        </a>
                     </button>
-                    <button type="button" className={styles.appleButton}>
-                        <a href="https://www.apple.com">
+                    <button type="button" className={styles.appleButton} onClick={() => alert('Apple Login')}>
                         <img src="https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.541/apple-logo.54e0d711.svg" alt="Apple" className={styles.authImage} />
                         Apple
-                        </a>
                     </button>
-                    <button type="button" className={styles.slackButton}>
-                        <a href="https://www.slack.com">
+                    <button type="button" className={styles.slackButton} onClick={() => alert('Slack Login')}>
                         <img src="https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.541/slack-logo.5d730c10.svg" alt="Slack" className={styles.authImage} />
                         Slack
-                        </a>
                     </button>
                 </div>
                 <div className={styles.registerFooter}>
