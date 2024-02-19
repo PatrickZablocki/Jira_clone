@@ -1,162 +1,162 @@
 .home-container {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 /* Style für den Header und Navbar */
 .header {
-    background-color: white;
-    color: white;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 5px 5px 5px grey;
-    position: relative;
-}
-.header-content{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  background-color: white;
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 5px 5px 5px grey;
+  position: relative;
 }
 .header-content {
-    flex-grow: 1;
-    text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-content {
+  flex-grow: 1;
+  text-align: center;
 }
 .profile-container {
-    position: relative;
-    margin-left: 10px;
-    margin-inline: 12px;
+  position: relative;
+  margin-left: 10px;
+  margin-inline: 12px;
 }
-.Logo-Image{
-    width: 200px;
-    height: auto;
+.Logo-Image {
+  width: 200px;
+  height: auto;
 }
-nav{
-    display: flex;
-    align-items: center;
+nav {
+  display: flex;
+  align-items: center;
 }
 .navbar ul {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 .navbar li {
-    margin-left: 50px;
-    margin-inline: 12px;
-    font-size: 1.25rem;
+  margin-left: 50px;
+  margin-inline: 12px;
+  font-size: 1.25rem;
 }
-.navbar li a{
-    color: black;
-    text-decoration: none;
-    margin-left: 20px;
+.navbar li a {
+  color: black;
+  text-decoration: none;
+  margin-left: 20px;
 }
 .navbar li a:hover {
-    color: #327dec;
+  color: #327dec;
 }
 .dropdown-content {
-    text-decoration:none;
-    color: black;
+  text-decoration: none;
+  color: black;
 }
-.CreateBtn{
-    background: #327dec;
-    color: white;
-    border: 2px solid #327dec;
-    width: 60px;
-    height: 35px;
-    margin-left: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    border-radius: 10px;
+.CreateBtn {
+  background: #327dec;
+  color: white;
+  border: 2px solid #327dec;
+  width: 60px;
+  height: 35px;
+  margin-left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 10px;
 }
 .CreateBtn:hover {
-    transform: translateY(-5px);
-    transition: 0.5ms;
-    box-shadow: 10px 10px 10px black;
+  transform: translateY(-5px);
+  transition: 0.5ms;
+  box-shadow: 10px 10px 10px black;
 }
 .Search {
-    position: relative;
+  position: relative;
 }
 
 .Search-icon {
-    position: absolute; 
-    top: 50%; 
-    left: 10px; 
-    transform: translateY(-50%);
-    color: #888;
-    cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: #888;
+  cursor: pointer;
 }
-.Search-content{
-    padding-left: 30px;
+.Search-content {
+  padding-left: 30px;
 }
-.LogInBtn{
-    border-radius: 10px;
-    background: #327dec;
-    border: 1px solid #327dec;
+.LogInBtn {
+  border-radius: 10px;
+  background: #327dec;
+  border: 1px solid #327dec;
 }
-.LogInBtn:hover{
-    transform: translateY(-2px);
-    transition: 0.5ms;
-    box-shadow: 5px 5px 5px black;
+.LogInBtn:hover {
+  transform: translateY(-2px);
+  transition: 0.5ms;
+  box-shadow: 5px 5px 5px black;
 }
-.LogInBtn a{
-    color: white;
-    text-decoration: none;
-    font-size: 1rem;
+.LogInBtn a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
 }
 .settingBtn,
 .LogInBtn {
-    margin-right: 12px;
+  margin-right: 12px;
 }
 /* HIer endet das Styling für den Header und die Navabr */
 .Sidebar {
-    background: #ededed;
-    width: 200px;
-    padding: 20px;
+  background: #ededed;
+  width: 200px;
+  padding: 20px;
 }
-.Sidebar  h2{
-    text-transform: uppercase;
-    font-size: 1.5rem;
+.Sidebar h2 {
+  text-transform: uppercase;
+  font-size: 1.5rem;
 }
 .Sidebar ul {
-    list-style-type: none;
-    padding: 0;
+  list-style-type: none;
+  padding: 0;
 }
-.Sidebar li a:hover{
-    color: #327dec;
-    background: #327cec52;
-    width: calc(100% - 40px);
-    display: block;
-    padding: 10px 20px;
+.Sidebar li a:hover {
+  color: #327dec;
+  background: #327cec52;
+  width: calc(100% - 40px);
+  display: block;
+  padding: 10px 20px;
 }
 .Sidebar li a {
-    text-decoration: none;
-    color: black;
-    display: block;
-    padding: 10px 20px;
+  text-decoration: none;
+  color: black;
+  display: block;
+  padding: 10px 20px;
 }
 .Sidebar li {
-    margin-bottom: 12px;
+  margin-bottom: 12px;
 }
 .Sidebar ul li:last-child::after {
-    content: "";
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background-color: black;
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: black;
 }
 .Sidebar ul .line {
-    height: 1px;
-    background-color: gray;
-    margin-bottom: 12px;
+  height: 1px;
+  background-color: gray;
+  margin-bottom: 12px;
 }
 .Sidebar ul li a .icon {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 /*  Hier beginnt das Styling für die Sidebar */
 
@@ -164,27 +164,76 @@ nav{
 
 /* Hier beginnt der Main Content */
 .content {
-    display: flex;
-    flex: 1;
-    text-align: center;
+  display: flex;
+  flex: 1;
+  text-align: center;
+}
+.custom-scroll::-webkit-scrollbar{
+  width: 8px;
+}
+.custom-scroll::-webkit-scrollbar-thumb{
+  border-radius: 30px;
+  border: 1px solid #f8f8f8;
+  background-color: #ccc;
+}
+.custom-scroll::-webkit-scrollbar-thumb:hover{
+  background-color: #ccc;
 }
 .main-view {
-    flex: 1;
-    padding: 20px;
+  background-color: #12233d;
+  height: 86vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.main_nav {
+  width: 100%;
+  padding: 20px 30px;
+  border-bottom: 1px solid #ccc;
+}
+.main_nav h2 {
+  margin-right: 90%;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.main_outer {
+  flex: 1;
+  width: 100%;
+  overflow-x: auto;
+  
 }
 
-.task {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 10px;
+.main_boards {
+  padding: 20px;
+  padding-bottom: 0;
+  height: 100%;
+  min-width: fit-content;
+  display: flex;
+  gap: 20px;
 }
+.app_boards_board{
+  min-width: 270px;
+  max-width: 270px;
+}
+.app_boards_board_add{
+  width: 100%;
+  background-color: white;
+    border-radius: 5px;
+    box-shadow: 1px 2px 0 1px rgb(131, 130, 130);
+
+}
+.app_boards_board_add:hover{
+  box-shadow: 1px 2px 0 1px rgb(71, 71, 71);
+}
+
+
 /* HIer endet der Main Content */
 /* Hier beginnt das Styling für den Footer */
 
 .footer {
-    background-color: #0052cc;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    margin-top: auto;
+  background-color: #0052cc;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  margin-top: auto;
 }
