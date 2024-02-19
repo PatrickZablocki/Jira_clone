@@ -5,6 +5,8 @@ function Home()
             // Das ist die Funktion für das DropDown Menu und für den Dark Mode
         {
             const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+            const [isBellDropdownOpen, setIsBellDropdownOpen] = useState(false);
+            const [isQuestionDropdownOpen, setIsQuestionDropdownOpen] = useState(false);
             const [darkMode, setDarkMode] = useState(() => {
                 const savedDarkMode = localStorage.getItem('darkMode');
 
@@ -15,6 +17,13 @@ function Home()
             {
                 setIsDropdownOpen(!isDropdownOpen);
             };
+            // Dropdown for Bell and Question
+            const toggleBellDropdown = () => {
+                setIsBellDropdownOpen (!isBellDropdownOpen);
+            }
+            const toggleQuestionDropdown = () => {
+                setIsQuestionDropdownOpen (!isQuestionDropdownOpen);
+            }
 
             const toggleDarkMode = () => {
                 const newDarkMode = !darkMode;
@@ -61,6 +70,34 @@ function Home()
                 </div>
                 </div>
                 <div className="profile-container">
+                    <button className="BellBtn" onClick={toggleBellDropdown}>
+                    🔔
+                    </button>
+                    {isBellDropdownOpen && (
+                        <div className="bellDropdown">
+                            <h2>Benachrichtigungen</h2>
+                            <p>Direkt</p>
+                            <button></button>
+                        </div>
+                    )}
+                    <button className="QuestionBtn" onClick={toggleQuestionDropdown}>
+                    ?
+                    </button>
+                    {isQuestionDropdownOpen && (
+                        <div className="questionDropdown">
+                            <h2>Help</h2>
+                            <ul>
+                                <li><a href="">Erfahren Sie, was an Jira geändert wurde</a></li>
+                                <li><a href="">Komplette Dokumenation durchsuchen</a></li>
+                                <li><a href="">Mit Atlassian University lernen</a></li>
+                                <li><a href="">Community-Forum fragen</a></li>
+                                <li><a href="">Support kontaktieren</a></li>
+                                <li><a href="">Geben Sie Feedback zu Jira</a></li>
+                                <li><a href="">Tastenkombinationen</a></li>
+                                <li><a href="">Jira für Mobilegeräte erhalten</a></li>
+                            </ul>
+                        </div>
+                    )}
                     <button className="settingBtn" onClick={toggleDropdown}>
                         <span class="icon">⚙️</span>
                     </button>

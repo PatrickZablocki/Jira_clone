@@ -108,10 +108,34 @@ nav{
     font-size: 1rem;
 }
 .settingBtn,
-.LogInBtn {
+.LogInBtn,
+.BellBtn,
+.QuestionBtn{
     margin-right: 12px;
     cursor: pointer;
+    border-radius: 10px;
 }
+.QuestionBtn:hover{
+    transform: translateY(-2px);
+    transition: 0.5ms;
+    box-shadow: 5px 5px 5px black;
+    background: #327dec;
+}
+.BellBtn:hover{
+    transform: translateY(-2px);
+    transition: 0.5ms;
+    box-shadow: 5px 5px 5px black;
+    background: #327dec;
+}
+.BellBtn{
+    width: 40px;
+    height: 25px;
+}
+.QuestionBtn{
+    width: 40px;
+    height: 25px;
+}
+
 /* Hier eine Extra Styling für das Dropdown menu */
 .dropdown-menu {
     position: absolute;
@@ -154,6 +178,69 @@ nav{
     display: block;
     padding: 10px 20px;
     border: 2px solid #888;
+}
+/* dropdown für die Benachrittigung */
+.bellDropdown{
+    position: absolute;
+    top: 100%;
+    right: 87px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    display: inline-block;
+    width: 500px;
+    height: auto;
+}
+.bellDropdown h2,p {
+color: #000;
+}
+/* Styling für die Question  */
+.questionDropdown{
+    position: absolute;
+    top: 100%;
+    right: 137px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    display: inline-block;
+    width: 500px;
+    height: auto;
+}
+.questionDropdown h2,ul,li,a{
+color: #000;
+}
+.questionDropdown h2{
+    background: #b6b4b4;
+    box-shadow: 5px 5px 5px #222;
+
+}
+.questionDropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.questionDropdown ul li {
+    padding: 5px 0;
+}
+
+.questionDropdown ul li a {
+    color: #333;
+    text-decoration: none;
+}
+
+.questionDropdown ul li a:hover {
+    color: #000;
+    font-weight: bold;
+}
+.questionDropdown a:hover{
+    background:#88888825;
+    width: calc(100% - 40px);
+    display: block;
+    padding: 10px 20px;
+    border: 2px solid #888;;
 }
 #DarkMode{
     font-size: 1.2rem;
