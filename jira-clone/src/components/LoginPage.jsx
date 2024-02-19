@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; 
-import styles from './LoginPage.module.css'; 
+import { useNavigate } from 'react-router-dom';
+import styles from './LoginPage.module.css';
 
 function LoginPage() {
   const [username, setUsername] = useState('');
@@ -8,27 +8,21 @@ function LoginPage() {
   const [loginError, setLoginError] = useState('');
   const navigate = useNavigate();
 
-  // Funktion zur Behandlung des Formularabsendens
-  const handleSubmit = async (e) => {
-    e.preventDefault(); 
+  const handleSubmit = (e) => {
+    e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/users');
-      if (response.ok) { // Überprüfung, ob die Anfrage erfolgreich war
-        const users = await response.json();
-        // Suche nach einem Benutzer, der dem eingegebenen Benutzernamen und Passwort entspricht
-        const user = users.find(u => u.username === username && u.password === password);
-        if (user) {
-          console.log('Login erfolgreich');
-          navigate('/dashboard'); // Weiterleitung zum Dashboard bei Erfolg
-        } else {
-          setLoginError('Benutzername oder Passwort falsch.'); 
-        }
+      const users = JSON.parse(localStorage.getItem('users')) || [];
+      const user = users.find(user => user.username === username && user.password === password);
+      if (user) {
+        const token = 'simuliertes-token-' + new Date().getTime(); // Simulierter Token
+        localStorage.setItem('token', token);
+        navigate('/'); // Weiterleitung zum Dashboard
       } else {
-        setLoginError('Anmeldefehler'); 
+        setLoginError('Benutzername oder Passwort falsch.');
       }
     } catch (error) {
-      console.error('Fehler bei der Anmeldung', error); 
-      setLoginError('Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.'); // Allgemeine Fehlermeldung
+      console.error('Login fehlgeschlagen', error);
+      setLoginError('Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.');
     }
   };
 
@@ -82,20 +76,28 @@ function LoginPage() {
         <div className={styles.continueWithText}> <h4>Oder fortfahren mit:</h4></div>
         <div className={styles.alternativeOptions}>
           <button type="button" onClick={handleGoogleSignIn} className={styles.googleButton}>
+            <a href="https://www.google.com">
             <img src="https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.541/google-logo.5867462c.svg" alt="Google" className={styles.authImage} />
             Google
+            </a>
           </button>
           <button type="button" onClick={handleMicrosoftSignIn} className={styles.microsoftButton}>
+            <a href="https://www.microsoft.com">
             <img src="https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.541/microsoft-logo.c73d8dca.svg" alt="Microsoft" className={styles.authImage} />
             Microsoft
+            </a>
           </button>
           <button type="button" onClick={handleAppleSignIn} className={styles.appleButton}>
+            <a href="https://www.apple.com">
             <img src="https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.541/apple-logo.54e0d711.svg" alt="Apple" className={styles.authImage} />
             Apple
+            </a>
           </button>
           <button type="button" onClick={handleSlackSignIn} className={styles.slackButton}>
+            <a href="https://www.slack.com">
             <img src="https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.541/slack-logo.5d730c10.svg" alt="Slack" className={styles.authImage} />
             Slack
+            </a>
           </button>
         </div>
         <div className={styles.loginFooter}>
