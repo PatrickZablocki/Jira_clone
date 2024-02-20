@@ -8,6 +8,8 @@ function Home()
             const [isBellDropdownOpen, setIsBellDropdownOpen] = useState(false);
             const [isQuestionDropdownOpen, setIsQuestionDropdownOpen] = useState(false);
             const [isFeedbackPopupOpen, setIsFeedbackPopupOpen] = useState(false);
+            const [isShowPopupOpen, setIsShowPopupOpen] = useState(false);
+
             const [darkMode, setDarkMode] = useState(() => {
                 const savedDarkMode = localStorage.getItem('darkMode');
 
@@ -28,10 +30,14 @@ function Home()
 
             // Die Funktion für das PoP Up
 
-            const toggleFeedbackPopup = () => {
-            setIsFeedbackPopupOpen(!isFeedbackPopupOpen);
-            setIsQuestionDropdownOpen(false);
+            const togglePopup = () => {
+                setIsShowPopupOpen(!isShowPopupOpen);
             };
+
+            const toggleFeedbackPopup = () => {
+                setIsFeedbackPopupOpen(!isFeedbackPopupOpen);
+                setIsQuestionDropdownOpen(false);
+                };
 
             const toggleDarkMode = () => {
                 const newDarkMode = !darkMode;
@@ -69,9 +75,16 @@ function Home()
                         <li><a href="#">Filters</a></li>
                         <li><a href="#">Dashboard</a></li>
                         <li><a href="#">People</a></li>
-                        <button className="CreateBtn">Create</button>
+                        <button className="CreateBtn" onClick={togglePopup}> Create</button>
+                        {isShowPopupOpen && (
+                        <div className="showpopup">
+                            <h2>Jira Ticket</h2>
+                            <p>Direkt</p>
+                        </div>
+                    )}
                     </ul>
                 </nav>
+                
                 <div className="Search">
                     <span class="Search-icon">&#128269;</span>
                     <input className="Search-content" type="search" placeholder="Search"/>        

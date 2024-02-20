@@ -77,6 +77,22 @@ nav{
     transition: 0.5ms;
     box-shadow: 10px 10px 10px black;
 }
+/* Einstellung für Ticket erstellung */
+.showpopup{
+    position: absolute;
+    top: 130%;
+    right: 500px;
+    background-color: #fff;
+    border: 1px solid #070707;
+    border-radius: 5px;
+    padding: 10px;
+    display: inline-block;
+    width: 1000px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+}
+
 .Search {
     position: relative;
 }
@@ -91,6 +107,8 @@ nav{
 }
 .Search-content{
     padding-left: 30px;
+    width: 100%;
+    height: 30px;
 }
 .LogInBtn{
     border-radius: 10px;
@@ -277,6 +295,20 @@ color: #000;
     color: white;
 }
 .dark-mode .dropdown-menu h2{
+    color: #fff;
+}
+.dark-mode .questionDropdown{
+    background-color: #222;
+    color: #fff;
+}
+.dark-mode .questionDropdown a{
+    color: #fff;
+}
+.dark-mode .bellDropdown{
+    background-color: #222;
+    color: #fff;
+}
+.dark-mode .bellDropdown h2,p{
     color: #fff;
 }
 /* Extra Einstellung für das Zahnrad */
