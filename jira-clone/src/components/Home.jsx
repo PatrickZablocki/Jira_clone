@@ -1,4 +1,5 @@
 import{ useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Home.css';
 
 function Home()
@@ -46,6 +47,31 @@ function Home()
                 localStorage.setItem('darkMode', JSON.stringify(newDarkMode));
             };
 
+            const [isLoggedIn, setIsLoggedIn] = useState(false);
+            const navigate = useNavigate();
+
+    
+            useEffect(() => {
+                const token = localStorage.getItem('token');
+            if (token) {
+                setIsLoggedIn(true);
+            }else {
+            setIsLoggedIn(false);
+            }
+            }, []);
+
+    
+            const handleLogout = () => {
+                localStorage.removeItem('token'); 
+                setIsLoggedIn(false); 
+                navigate('/'); 
+            };
+
+    
+            const handleSignIn = () => {
+                navigate('/login'); // Navigieren zur Login-Seite
+            };
+
             useEffect(() => {
                 if (darkMode) {
                     document.body.classList.add('dark-mode');
@@ -54,7 +80,6 @@ function Home()
                 }
             }, [darkMode]);
 
-            // Hier schreibe ich die Funktion um weitergeleitet zu werden
 
 
 
@@ -91,6 +116,7 @@ function Home()
                 </div>
                 </div>
                 <div className="profile-container">
+
                     <button className="BellBtn" onClick={toggleBellDropdown}>
                     🔔
                     </button>
@@ -140,42 +166,36 @@ function Home()
                             </ul>
                         </div>
                     )}
-                    {/* Hier hört das Dropdown menu auf und beginnt der LogIn Button */}
-                    <button className="LogInBtn"><a href="">Sign in</a></button>
-                </div>
+                    {/* Das ist der Sign in Button  */}
+                    {isLoggedIn ? <button className="LogInBtn" onClick={handleLogout}>Log out</button> : <button className="LogInBtn" onClick={handleSignIn}>Sign in</button>}
+                </div>    
             </header>
-            {/* Hier Hört der Header auf */}
-            {/* Hier geht die Sidebar los */}
-            <div className="content">
-            <div className="Sidebar">
-                <h2>Planning</h2>
-                <ul>
-                    <li><a href="#"><span class="icon">&#x1F4C5;</span>Timeline</a></li>
-                    <li><a href="#"><span class="icon">&#x1F4A1;</span>Backlog</a></li>
-                    <li><a href="#"><span class="icon">&#x1F5C3;</span>Board</a></li>
-                    <li class="line"></li>
-                    <li><a href="#"><span class="icon">&#x271A;</span>Add shortcut</a></li>
-                    <li><a href="#"><span class="icon">⚙️</span>Project settings</a></li>
-                </ul>
-            </div>
-            {/* HIer endet die Sidebar */}
-            {/* Ab hier beginnt der Main Content */}
-                <div className="main-view">
-                    <h2>Backlog</h2>
-                    <div className="task">
-                        <h3>Task 1</h3>
-                        <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <div className="content"> {/* Hauptinhalt der Seite */}
+                <div className="Sidebar"> {/* Seitenleiste */}
+                    <h2>Planning</h2>
+                    <ul>
+                        <li><a href="#"><span className="icon">&#x1F4C5;</span>Timeline</a></li>
+                        <li><a href="#"><span className="icon">&#x1F4A1;</span>Backlog</a></li>
+                        <li><a href="#"><span className="icon">&#x1F5C3;</span>Board</a></li>
+                        <li className="line"></li>
+                        <li><a href="#"><span className="icon">&#x271A;</span>Add shortcut</a></li>
+                        <li><a href="#"><span className="icon">⚙️</span>Project settings</a></li>
+                    </ul>
+                </div>
+                <div className="main-view"> {/* Hauptansicht */}
+                    <h2>Backlog</h2> {/* Titel des Backlogs */}
+                    <div className="task"> {/* Einzelner Task */}
+                        <h3>Task 1</h3> {/* Titel des Tasks */}
+                        <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> {/* Beschreibung des Tasks */}
                     </div>
-                    <div className="task">
-                        <h3>Task 2</h3>
-                        <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <div className="task"> {/* Einzelner Task */}
+                        <h3>Task 2</h3> {/* Titel des Tasks */}
+                        <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> {/* Beschreibung des Tasks */}
                     </div>
                 </div>
             </div>
-            {/* Hier endet der Main content */}
-            {/* Hier beginnt der Footer */}
-            <footer className="footer">
-                <p>© {new Date().getFullYear()} Jira-Clone</p>
+            <footer className="footer"> {/* Fußzeile */}
+                <p>© {new Date().getFullYear()} Jira-Clone</p> {/* Copyright-Informationen */}
             </footer>
         </div>
     );

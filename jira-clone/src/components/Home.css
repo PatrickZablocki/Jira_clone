@@ -114,6 +114,9 @@ nav{
     border-radius: 10px;
     background: #327dec;
     border: 1px solid #327dec;
+    width: 60px;
+    height: 30px;
+    color: white;
 }
 .LogInBtn:hover{
     transform: translateY(-2px);
