@@ -11,7 +11,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 5px 5px 5px grey;
+  box-shadow: 3px 3px 3px rgba(39, 111, 255, 0.672);
   position: relative;
 }
 .header-content {
@@ -44,7 +44,7 @@ nav {
 }
 .navbar li {
   margin-left: 50px;
-  margin-inline: 12px;
+  margin-inline: 2px;
   font-size: 1.25rem;
 }
 .navbar li a {
@@ -63,19 +63,20 @@ nav {
   background: #327dec;
   color: white;
   border: 2px solid #327dec;
-  width: 60px;
-  height: 35px;
+  font-size: 18px;
+  width: 70px;
+  height: 23px;
   margin-left: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  border-radius: 10px;
+  border-radius: 11px;
 }
 .CreateBtn:hover {
   transform: translateY(-5px);
   transition: 0.5ms;
-  box-shadow: 10px 10px 10px black;
+  box-shadow: 5px 5px 5px black;
 }
 .Search {
   position: relative;
@@ -113,7 +114,7 @@ nav {
 }
 /* HIer endet das Styling für den Header und die Navabr */
 .Sidebar {
-  background: #ededed;
+  background: #327cece1;
   width: 200px;
   padding: 20px;
 }
@@ -126,8 +127,8 @@ nav {
   padding: 0;
 }
 .Sidebar li a:hover {
-  color: #327dec;
-  background: #327cec52;
+  color: #eaecf0;
+  background: rgba(5, 92, 214, 0.654);
   width: calc(100% - 40px);
   display: block;
   padding: 10px 20px;
@@ -140,6 +141,7 @@ nav {
 }
 .Sidebar li {
   margin-bottom: 12px;
+  white-space: nowrap;
 }
 .Sidebar ul li:last-child::after {
   content: "";
@@ -152,7 +154,7 @@ nav {
 }
 .Sidebar ul .line {
   height: 1px;
-  background-color: gray;
+  background-color: rgba(39, 111, 255, 0.672);
   margin-bottom: 12px;
 }
 .Sidebar ul li a .icon {
@@ -168,7 +170,7 @@ nav {
   flex: 1;
   text-align: center;
 }
-.custom-scroll::-webkit-scrollbar{
+/* .custom-scroll::-webkit-scrollbar{
   width: 8px;
 }
 .custom-scroll::-webkit-scrollbar-thumb{
@@ -178,15 +180,21 @@ nav {
 }
 .custom-scroll::-webkit-scrollbar-thumb:hover{
   background-color: #ccc;
-}
+} */
 .main-view {
-  background-color: #12233d;
-  height: 86vh;
+  background-color: #f0f3f6;
+
   width: 100%;
   display: flex;
   flex-direction: column;
 }
 .main_nav {
+  width: 100%;
+  padding: 20px 30px;
+  border-bottom: 1px solid #ccc;
+}
+
+/* .main_nav {
   width: 100%;
   padding: 20px 30px;
   border-bottom: 1px solid #ccc;
@@ -224,8 +232,7 @@ nav {
 }
 .app_boards_board_add:hover{
   box-shadow: 1px 2px 0 1px rgb(71, 71, 71);
-}
-
+} */
 
 /* HIer endet der Main Content */
 /* Hier beginnt das Styling für den Footer */
@@ -236,4 +243,317 @@ nav {
   padding: 10px;
   text-align: center;
   margin-top: auto;
+}
+
+/* .header {
+  flex-direction: column;
+  padding: 10px;
+}
+
+.header-content {
+  flex-direction: column;
+  align-items: center;
+}
+.Logo-Image {
+  width: 150px;
+  height: auto;
+  margin-right: 280px;
+}
+
+.navbar ul {
+  display: none;
+  flex-direction: row;
+  align-items: center;
+} */
+
+/* .navbar li {
+  white-space: nowrap;
+  margin-left: 2px;
+  font-size: 15px;
+  
+  } */
+
+/* .CreateBtn {
+  width: auto;
+  padding: 5px 10px;
+  font-size: 18px;
+}
+.Search-content {
+  margin-left: 70px;
+}
+.Search-icon {
+  left: auto;
+  right: 10px;
+}
+
+.Sidebar {
+  display: none;
+}
+.LogInBtn {
+  font-size: bold;
+  width: 78px;
+  height: 28px;
+  margin-right: 50px;
+  margin-bottom: 28px;
+  border-radius: 11px;
+}
+.settingBtn {
+  display: none;
+}
+.main-nav {
+  display: none;
+} */
+
+/* @media only screen and (max-width: 480px) {
+  
+  .header {
+    display: flex;
+    flex-direction: column;
+  }
+  .header-content {
+    display: flex;
+    flex-direction: column;
+    white-space: nowrap;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    
+  }
+  .profile-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  
+} */
+@media only screen and (min-width: 370px)and (max-width: 480px) {
+  .header {
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+  }
+
+  .Logo-Image {
+    width: 80px;
+    height: auto;
+  }
+
+  .navbar ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .navbar li {
+    white-space: nowrap;
+    font-size: 15px;
+  }
+  .CreateBtn {
+    max-width: 55px;
+    height: 20px;
+    font-size: 15px;
+  }
+  .LogInBtn {
+    max-width: 59px;
+    height: 22px;
+    white-space: nowrap;
+    border-radius: 15px;
+   
+  }
+  .Search-content {
+    max-width: 92px;
+    margin-bottom: 2px;
+    margin-left: 5px;
+    margin-right: -6px;
+    
+  }
+  .Search-icon {
+    padding-bottom: 2px;
+    
+  }
+  .settingBtn {
+    display: none;
+    margin-left: 40px;
+    margin-bottom: 2px;
+  }
+  .Sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+  }
+  .main-view {
+    display: none;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+  .header {
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+  }
+
+  .Logo-Image {
+    width: 80px;
+    height: auto;
+  }
+
+  .navbar ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .navbar li {
+    white-space: nowrap;
+    font-size: 15px;
+  }
+  .CreateBtn {
+    max-width: 55px;
+    height: 20px;
+    font-size: 15px;
+  }
+  .LogInBtn {
+    max-width: 59px;
+    height: 22px;
+    white-space: nowrap;
+    border-radius: 15px;
+   
+  }
+  .Search-content {
+    max-width: 92px;
+    margin-bottom: 2px;
+    margin-left: 5px;
+    margin-right: -6px;
+    
+  }
+  .Search-icon {
+    padding-bottom: 2px;
+    
+  }
+  .settingBtn {
+    display: none;
+    margin-left: 40px;
+    margin-bottom: 2px;
+  }
+  .Sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+  }
+  .main-view {
+    display: flex;
+  }
+}
+
+@media only screen and (min-width: 767px) and (max-width: 1024px) {
+  .header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+  .Logo-Image {
+    width: 130px;
+    height: auto;
+  }
+  .navbar ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .navbar li {
+    white-space: nowrap;
+    font-size: 17px;
+  }
+  .CreateBtn {
+    max-width: 59px;
+    padding: 5px 10px;
+    font-size: 17px;
+  }
+  .Search-content {
+    max-width: 90px;
+    text-align: right;
+    padding-left: 15px;
+    margin-left: 5px;
+  }
+  .Search-icon {
+    right: auto;
+  }
+
+  .LogInBtn {
+    max-width: 59px;
+    height: 25px;
+    white-space: nowrap;
+    border-radius: 15px;
+    margin-right: 50px;
+  }
+  .Sidebar {
+    display: flex;
+    flex-direction: column;
+  }
+  .main-view {
+    display: flex;
+  }
+}
+@media only screen and (min-width: 1025px) and (max-width: 1280px) {
+  .header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+  .Logo-Image {
+    width: 130px;
+    height: auto;
+  }
+  .navbar ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .navbar li {
+    white-space: nowrap;
+    font-size: 18px;
+  }
+  .CreateBtn {
+    max-width: 59px;
+    padding: 5px 10px;
+    font-size: 17px;
+  }
+  .Search-content {
+    max-width: 90px;
+    text-align: right;
+    padding-left: 15px;
+    margin-left: 5px;
+  }
+  .Search-icon {
+    right: auto;
+  }
+
+  .LogInBtn {
+    max-width: 59px;
+    height: 25px;
+    white-space: nowrap;
+    border-radius: 15px;
+    margin-right: 50px;
+  }
+  .Sidebar {
+    display: flex;
+    flex-direction: column;
+  }
+  .main-view {
+    display: flex;
+  }
+}
+@media (min-width: 1281px) {
+  .Sidebar {
+    display: flex;
+    flex-direction: column;
+  }
+  .main-view {
+    display: flex;
+  }
+  .navbar ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
 }
