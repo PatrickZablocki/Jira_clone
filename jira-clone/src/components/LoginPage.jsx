@@ -8,23 +8,28 @@ function LoginPage() {
   const [loginError, setLoginError] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const users = JSON.parse(localStorage.getItem('users')) || [];
-      const user = users.find(user => user.username === username && user.password === password);
-      if (user) {
-        const token = 'simuliertes-token-' + new Date().getTime(); // Simulierter Token
-        localStorage.setItem('token', token);
-        navigate('/'); // Weiterleitung zum Dashboard
-      } else {
-        setLoginError('Benutzername oder Passwort falsch.');
-      }
+        // Anfrage an den Server senden, um die Benutzerdaten zu überprüfen
+        const response = await fetch('http://localhost:5000/users');
+        const users = await response.json();
+
+        // Überprüfen, ob ein Benutzer mit dem angegebenen Benutzernamen und Passwort existiert
+        const user = users.find(user => user.username === username && user.password === password);
+        if (user) {
+            // Simulierter Token für die Demonstration; in einem realen Szenario sollte der Token vom Server kommen
+            const token = 'simuliertes-token-' + new Date().getTime();
+            localStorage.setItem('token', token);
+            navigate('/'); // Weiterleitung zum Dashboard oder einer anderen Seite nach erfolgreicher Anmeldung
+        } else {
+            setLoginError('Benutzername oder Passwort falsch.');
+        }
     } catch (error) {
-      console.error('Login fehlgeschlagen', error);
-      setLoginError('Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.');
+        console.error('Login fehlgeschlagen', error);
+        setLoginError('Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.');
     }
-  };
+};
 
   const handleGoogleSignIn = () => {
     console.log('Google-Anmeldung durchgeführt');
