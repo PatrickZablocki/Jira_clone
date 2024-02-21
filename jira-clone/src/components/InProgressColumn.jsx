@@ -2,19 +2,20 @@ import React from 'react';
 
 const InProgressColumn = ({ tasks, onDelete, onComplete }) => {
   return (
-    <div>
-      <h2>In Progress</h2>
-      {tasks.map((task, index) => (
-        <div key={index}>
-          <h3>{task.summary}</h3>
-          <p>{task.description}</p>
-          <p>Project: {task.project}</p>
-          <p>Issue Type: {task.issueType}</p>
-          <p>Owner: {task.owner}</p>
-          <button onClick={() => onDelete(index)}>Delete</button>
-          
-        </div>
-      ))}
+    <div className="card">
+      <h2 className="card-header">In Progress</h2>
+      <div className="card-body">
+        {tasks.map((task, index) => (
+          <div key={index} className='task'>
+            <h3>{task.summary}</h3>
+            <p>{task.description}</p>
+            <p>Project: {task.project}</p>
+            <p>Issue Type: {task.issue}</p>
+            <p>Owner: {task.owner}</p>
+            <button className="btn btn-danger" onClick={() => onDelete(index)}>Delete</button>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

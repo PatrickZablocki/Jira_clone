@@ -1,9 +1,9 @@
 // const ToDoColumn = ({ tasks, onDelete, onComplete }) => {
 //     return (
 //       <div>
-        
+
 //         {tasks.map((task, index) => (
-            
+
 //           <div key={index}>
 //             <h2>{task.status}</h2>
 //             <h3>{task.summary}</h3>
@@ -18,26 +18,31 @@
 //       </div>
 //     );
 //   };
-  
+
 //   export default ToDoColumn;
 
+import { DragDropContext } from "react-beautiful-dnd"; 
+
+
 const ToDoColumn = ({ tasks, onDelete }) => {
-    return (
-      <div>
-        <h2>To Do</h2>
+  return (
+    <div className="card">
+      <h2 className="card-header">To Do</h2>
+      <div className="card-body">
+        
         {tasks.map((task, index) => (
-          <div key={index}>
+          <div key={index} className="task">
             <h3>{task.summary}</h3>
             <p>{task.description}</p>
             <p>Project: {task.project}</p>
-            <p>Issue Type: {task.issueType}</p>
+            <p>Issue Type: {task.issue}</p>
             <p>Owner: {task.owner}</p>
-           
-            <button onClick={() => onDelete(index)}>Delete</button>
+            <button className="btn btn-danger" onClick={() => onDelete(index)}>Delete</button>
           </div>
         ))}
       </div>
-    );
-  };
-  
-  export default ToDoColumn;
+    </div>
+  );
+};
+
+export default ToDoColumn;

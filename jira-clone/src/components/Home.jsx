@@ -117,7 +117,7 @@ function Home()
             completedOn: finalDate,
         };
 
-        // console.log (filteredTodo);
+        console.log (filteredTodo);
 
         let updatedCompletedList = [...completedTodos, filteredTodo];
         console.log(updatedCompletedList);
@@ -156,7 +156,7 @@ function Home()
                             <li><a href="#">Filters</a></li>
                             <li><a href="#">Dashboard</a></li>
                             <li><a href="#">People</a></li>
-                            <button onClick={toggleModal} className="btn-modal">
+                            <button onClick={toggleModal} className="CreateBtn">
                                 Create
                             </button>
 
@@ -169,15 +169,22 @@ function Home()
                                         <div className="todo-wrapper">
 
                                             <div className="todo-input-item">
-                                                <label>Project* </label>
-                                                <select value={newProject} onChange={e => setNewProject(e.target.value)}>
-                                                    <option value="Project">Jira Clone</option>
+                                                <label>Project </label>
+                                                <select type="text" value={newProject} onChange={e => setNewProject(e.target.value)}>
+                                                    <option value="Choose">Choose a project</option>
+                                                    <option value="Jira">Jira Clone</option>
+                                                    <option value="Netflix">Netflix Clone</option>
+                                                    <option value="Spotify">Spotify Clone</option>
                                                 </select>
                                             </div>
                                             <div className="todo-input-item">
-                                                <label>Issue Type* </label>
-                                                <select value={newStatus} onChange={e => setNewStatus(e.target.value)}>
-                                                    <option value="Issue Type">Bug</option>
+                                                <label>Issue Type </label>
+                                                <select type="text" value={newIssue} onChange={e => setNewIssue(e.target.value)}>
+                                                    <option value="Choose">What kind of Issue Type? </option>
+                                                    <option value="Bug">Bug</option>
+                                                    <option value="Task">Task</option>
+                                                    <option value="Risk">Risk</option>
+                                                    <option value="Story">Story</option>
 
                                                 </select>
                                             </div>
@@ -196,22 +203,29 @@ function Home()
                                                     type="text"
                                                     value={newDescription}
                                                     onChange={e => setNewDescription(e.target.value)}
-                                                    placeholder="What's the description of your To Do?"
+                                                    
                                                 />
                                             </div>
 
                                             <div className="todo-input-item">
                                                 <label>Owner </label>
-                                                <input
+                                                <select
                                                     type="text"
                                                     value={newOwner}
                                                     onChange={e => setNewOwner(e.target.value)}
-                                                    placeholder="What's the description of your To Do?"
-                                                />
+                                                    
+                                                >
+                                                    <option value="Choose">Choose a owner</option>
+                                                    <option value="Patrick">Patrick</option>
+                                                    <option value="Asel">Asel</option>
+                                                    <option value="Timo">Timo</option> 
+                                                    <option value="Janis">Janis</option> 
+                                                    </select>
                                             </div>
                                             <div className="todo-input-item">
                                                 <label>Status </label>
                                                 <select value={newStatus} onChange={e => setNewStatus(e.target.value)}>
+                                                    <option value="Status">Status</option>
                                                     <option value="ToDo">ToDo</option>
                                                     <option value="In Progress">In Progress</option>
                                                     <option value="Completed">Completed</option>
