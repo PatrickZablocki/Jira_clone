@@ -1,85 +1,80 @@
-import{ useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import axios from 'axios';
 import './Home.css';
 
-function Home()
-            // Das ist die Funktion für das DropDown Menu und für den Dark Mode
-        {
-            const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-            const [isBellDropdownOpen, setIsBellDropdownOpen] = useState(false);
-            const [isQuestionDropdownOpen, setIsQuestionDropdownOpen] = useState(false);
-            const [isFeedbackPopupOpen, setIsFeedbackPopupOpen] = useState(false);
-            const [isShowPopupOpen, setIsShowPopupOpen] = useState(false);
+function Home() {
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [isBellDropdownOpen, setIsBellDropdownOpen] = useState(false);
+    const [isQuestionDropdownOpen, setIsQuestionDropdownOpen] = useState(false);
+    const [isFeedbackPopupOpen, setIsFeedbackPopupOpen] = useState(false);
+    const [darkMode, setDarkMode] = useState(() => {
+    const savedDarkMode = localStorage.getItem('darkMode');
+    return savedDarkMode ? JSON.parse(savedDarkMode) : false;
+});
 
-            const [darkMode, setDarkMode] = useState(() => {
-                const savedDarkMode = localStorage.getItem('darkMode');
+    const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+};
 
-                    return savedDarkMode ? JSON.parse(savedDarkMode) :false;
-            });
+    const toggleBellDropdown = () => {
+    setIsBellDropdownOpen(!isBellDropdownOpen);
+};
 
-            const toggleDropdown = () => 
-            {
-                setIsDropdownOpen(!isDropdownOpen);
-            };
-            // Dropdown for Bell and Question
-            const toggleBellDropdown = () => {
-                setIsBellDropdownOpen (!isBellDropdownOpen);
-            }
-            const toggleQuestionDropdown = () => {
-                setIsQuestionDropdownOpen (!isQuestionDropdownOpen);
-            }
+    const toggleQuestionDropdown = () => {
+    setIsQuestionDropdownOpen(!isQuestionDropdownOpen);
+};
 
-            // Die Funktion für das PoP Up
+    const toggleFeedbackPopup = () => {
+    setIsFeedbackPopupOpen(!isFeedbackPopupOpen);
+    setIsQuestionDropdownOpen(false);
+};
 
-            const togglePopup = () => {
-                setIsShowPopupOpen(!isShowPopupOpen);
-            };
+    const toggleDarkMode = () => {
+    const newDarkMode = !darkMode;
+    setDarkMode(newDarkMode);
+    localStorage.setItem('darkMode', JSON.stringify(newDarkMode));
+};
 
-            const toggleFeedbackPopup = () => {
-                setIsFeedbackPopupOpen(!isFeedbackPopupOpen);
-                setIsQuestionDropdownOpen(false);
-                };
+    const [user, setUser] = useState(null);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const navigate = useNavigate();
 
-            const toggleDarkMode = () => {
-                const newDarkMode = !darkMode;
-                setDarkMode(newDarkMode);
+    useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+        setIsLoggedIn(true);
+        axios.get('/DB.json')
+        .then(response => {
+            const userData = response.data.users.find(u => u.id === parseInt(token));
+            setUser(userData);
+        })
+        .catch(error => {
+            console.error('Error fetching user data:', error);
+        });
+    } else {
+        setIsLoggedIn(false);
+    }
+}, []);
 
-                localStorage.setItem('darkMode', JSON.stringify(newDarkMode));
-            };
+    const handleLogout = () => {
+    localStorage.removeItem('token');
+    setIsLoggedIn(false);
+    navigate('/');
+};
 
-            const [isLoggedIn, setIsLoggedIn] = useState(false);
-            const navigate = useNavigate();
+    const handleSignIn = () => {
+    navigate('/login');
+};
 
-    
-            useEffect(() => {
-                const token = localStorage.getItem('token');
-            if (token) {
-                setIsLoggedIn(true);
-            }else {
-            setIsLoggedIn(false);
-            }
-            }, []);
-
-    
-            const handleLogout = () => {
-                localStorage.removeItem('token'); 
-                setIsLoggedIn(false); 
-                navigate('/'); 
-            };
-
-    
-            const handleSignIn = () => {
-                navigate('/login'); // Navigieren zur Login-Seite
-            };
-
-            useEffect(() => {
-                if (darkMode) {
-                    document.body.classList.add('dark-mode');
-                } else {
-                    document.body.classList.remove('dark-mode');
-                }
-            }, [darkMode]);
-
+    useEffect(() => {
+        if (darkMode) {
+            document.body.classList.add('dark-mode');
+    } else {
+    document.body.classList.remove('dark-mode');
+    }
+}, [darkMode]);
 
 
 
@@ -100,13 +95,7 @@ function Home()
                         <li><a href="#">Filters</a></li>
                         <li><a href="#">Dashboard</a></li>
                         <li><a href="#">People</a></li>
-                        <button className="CreateBtn" onClick={togglePopup}> Create</button>
-                        {isShowPopupOpen && (
-                        <div className="showpopup">
-                            <h2>Jira Ticket</h2>
-                            <p>Direkt</p>
-                        </div>
-                    )}
+                        <button className="CreateBtn"> Create</button>
                     </ul>
                 </nav>
                 
@@ -115,6 +104,8 @@ function Home()
                     <input className="Search-content" type="search" placeholder="Search"/>        
                 </div>
                 </div>
+                
+                {/* Hier geht es mit der Navbar Weiter Wichtigster Punkt ist der LogIn bereich */}
                 <div className="profile-container">
 
                     <button className="BellBtn" onClick={toggleBellDropdown}>
@@ -167,8 +158,24 @@ function Home()
                         </div>
                     )}
                     {/* Das ist der Sign in Button  */}
-                    {isLoggedIn ? <button className="LogInBtn" onClick={handleLogout}>Log out</button> : <button className="LogInBtn" onClick={handleSignIn}>Sign in</button>}
-                </div>    
+                    
+                    {isLoggedIn ? (
+                    <>
+                    {user && user.profilePictureUrl && (
+                    <li>
+                        <img src={user.profilePictureUrl} alt="Profile"/>
+                    </li>
+                    )}
+                    {/* <li>
+                        <Link to="/Profile/profile">Profil</Link>
+                    </li> */}
+                        <button className="LogOutBtn" onClick={handleLogout}>Log out</button>
+                    </>
+                    ) : (
+                        <button className="LogInBtn" onClick={handleSignIn}>Sign in</button>
+                    )}
+                </div>
+
             </header>
             <div className="content"> {/* Hauptinhalt der Seite */}
                 <div className="Sidebar"> {/* Seitenleiste */}

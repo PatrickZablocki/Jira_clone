@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "axios": "^1.6.7",
     "reactjs-popup": "^2.0.6"
   }
 }

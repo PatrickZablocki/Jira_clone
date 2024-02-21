@@ -77,26 +77,9 @@ nav{
     transition: 0.5ms;
     box-shadow: 10px 10px 10px black;
 }
-/* Einstellung für Ticket erstellung */
-.showpopup{
-    position: absolute;
-    top: 130%;
-    right: 500px;
-    background-color: #fff;
-    border: 1px solid #070707;
-    border-radius: 5px;
-    padding: 10px;
-    display: inline-block;
-    width: 1000px;
-    height: 600px;
-    display: flex;
-    justify-content: center;
-}
-
 .Search {
     position: relative;
 }
-
 .Search-icon {
     position: absolute; 
     top: 50%; 
@@ -128,6 +111,19 @@ nav{
     text-decoration: none;
     font-size: 1rem;
 }
+/*  Hier kommen die EInstellungen für den LogOut Button */
+.LogOutBtn{
+    border-radius: 10px;
+    background: #327dec;
+    border: 1px solid #327dec;
+    width: 60px;
+    height: 30px;
+    color: white;
+}
+
+
+
+
 .settingBtn,
 .LogInBtn,
 .BellBtn,
