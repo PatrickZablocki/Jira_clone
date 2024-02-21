@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './LoginPage.module.css';
+import { FaEye, FaEyeSlash } from 'react-icons/fa'; 
 
 function LoginPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [passwordVisible, setPasswordVisible] = useState(false); // Zustand für die Sichtbarkeit des Passworts
   const [loginError, setLoginError] = useState('');
   const navigate = useNavigate();
 
@@ -31,6 +33,7 @@ function LoginPage() {
     }
 };
 
+  // Funktionen für soziale Medien-Anmeldungen, wie in Ihrem Originalcode
   const handleGoogleSignIn = () => {
     console.log('Google-Anmeldung durchgeführt');
   };
@@ -47,6 +50,12 @@ function LoginPage() {
     console.log('Slack-Anmeldung durchgeführt');
   };
 
+  // Funktion zum Umschalten der Passwortsichtbarkeit
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible);
+  };
+
+  // Navigation zur Registrierungsseite
   const navigateToRegister = () => {
     navigate('/register');
   };
@@ -67,19 +76,27 @@ function LoginPage() {
             onChange={(e) => setUsername(e.target.value)}
           />
         </div>
-        <div className={styles.formGroup}>
+        <div className={`${styles.formGroup} ${styles.passwordInputGroup}`}>
           <input
-            type="password"
+            type={passwordVisible ? 'text' : 'password'}
             className={styles.input}
             placeholder="Passwort eingeben"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+          <button
+            type="button"
+            onClick={togglePasswordVisibility}
+            className={styles.passwordToggle}
+          >
+            {passwordVisible ? <FaEyeSlash /> : <FaEye />}
+          </button>
         </div>
         {loginError && <div className={styles.errorMessage}>{loginError}</div>}
         <button type="submit" className={styles.submitButton}>Weiter</button>
         <div className={styles.continueWithText}> <h4>Oder fortfahren mit:</h4></div>
-        <div className={styles.alternativeOptions}> 
+
+<div className={styles.alternativeOptions}> 
         <a href="https://accounts.google.com/signin">
                         <button type="button" className={styles.googleButton} onClick={() => alert('Google Login')}>
                         <img src="https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.541/google-logo.5867462c.svg" alt="Google" className={styles.authImage} />

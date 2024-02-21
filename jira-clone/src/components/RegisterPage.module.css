@@ -210,3 +210,21 @@
   padding-top: 20px; 
   margin-top: 10px;
 }
+
+.formGroup {
+  position: relative;
+}
+
+.input {
+  padding-right: 40px; 
+}
+
+.passwordToggle {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
