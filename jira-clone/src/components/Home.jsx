@@ -3,9 +3,7 @@ import './Home.css';
 import ToDoColumn from './ToDoColumn';
 import InProgressColumn from './InProgressColumn';
 import CompletedColumn from '../components/CompletedColumn';
-import Body from "./Body";
 import { Provider } from "react-redux";
-import store from "../store/index";
 import themeContext from "../context/ThemeContext";
 import Create from './Create';
 // import { Link, Route } from 'react-router-dom'
@@ -117,7 +115,7 @@ function Home()
             completedOn: finalDate,
         };
 
-        console.log (filteredTodo);
+        // console.log (filteredTodo);
 
         let updatedCompletedList = [...completedTodos, filteredTodo];
         console.log(updatedCompletedList);
@@ -170,7 +168,7 @@ function Home()
 
                                             <div className="todo-input-item">
                                                 <label>Project </label>
-                                                <select type="text" value={newProject} onChange={e => setNewProject(e.target.value)}>
+                                                <select name='Project' id='project' value={newProject} onChange={e => setNewProject(e.target.value)}>
                                                     <option value="Choose">Choose a project</option>
                                                     <option value="Jira">Jira Clone</option>
                                                     <option value="Netflix">Netflix Clone</option>
@@ -190,7 +188,7 @@ function Home()
                                             </div>
 
                                             <div className="todo-input-item">
-                                                <label>Summery </label>
+                                                <label>Summary </label>
                                                 <input type="text"
                                                     value={newSummary}
                                                     onChange={e => setNewSummary(e.target.value)}
@@ -289,7 +287,7 @@ function Home()
                 <div className="columns-wrapper">
                     <ToDoColumn tasks={allTodos.filter(task => task.status === 'ToDo')} onDelete={handleToDoDelete} onComplete={handleComplete} />
                     <InProgressColumn tasks={allTodos.filter(task => task.status === 'In Progress')} onDelete={handleToDoDelete} onComplete={handleComplete} />
-                    <CompletedColumn tasks={allTodos.filter(task => task.status === 'Completed')} onDelete={handleCompletedTodoDelete} />
+                    <CompletedColumn  tasks={allTodos.filter(task => task.status === 'Completed')} onDelete={handleCompletedTodoDelete} />
                 </div>
                 </div>
             </div>

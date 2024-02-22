@@ -8,7 +8,7 @@ const InProgressColumn = ({ tasks, onDelete, onComplete }) => {
         {tasks.map((task, index) => (
           <div key={index} className='task'>
             <h3>{task.summary}</h3>
-            <p>{task.description}</p>
+            <p>Description: {task.description}</p>
             <p>Project: {task.project}</p>
             <p>Issue Type: {task.issue}</p>
             <p>Owner: {task.owner}</p>
