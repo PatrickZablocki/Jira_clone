@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './Home.css';
 
@@ -37,6 +37,7 @@ function Home() {
     localStorage.setItem('darkMode', JSON.stringify(newDarkMode));
 };
 
+//  Das sind die Funktionen vom UserInterface
     const [user, setUser] = useState(null);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const navigate = useNavigate();
@@ -45,7 +46,7 @@ function Home() {
     const token = localStorage.getItem('token');
     if (token) {
         setIsLoggedIn(true);
-        axios.get('/DB.json')
+        axios.get('/db.json')
         .then(response => {
             const userData = response.data.users.find(u => u.id === parseInt(token));
             setUser(userData);
@@ -158,22 +159,17 @@ function Home() {
                         </div>
                     )}
                     {/* Das ist der Sign in Button  */}
-                    
+                    <div className="user-info">
                     {isLoggedIn ? (
                     <>
-                    {user && user.profilePictureUrl && (
-                    <li>
-                        <img src={user.profilePictureUrl} alt="Profile"/>
-                    </li>
-                    )}
-                    {/* <li>
-                        <Link to="/Profile/profile">Profil</Link>
-                    </li> */}
-                        <button className="LogOutBtn" onClick={handleLogout}>Log out</button>
+                        <span className="Benutzer-content">{isLoggedIn && user &&user.username}</span>
+                            <div className="status-circle" style={{ backgroundColor: user && user.online ? 'red' : 'green' }}></div>
+                        <button className="logOutBtn" onClick={handleLogout}>Abmelden</button>
                     </>
                     ) : (
-                        <button className="LogInBtn" onClick={handleSignIn}>Sign in</button>
+                        <button className="logInBtn" onClick={handleSignIn}>Anmelden</button>
                     )}
+                    </div>
                 </div>
 
             </header>
@@ -189,20 +185,20 @@ function Home() {
                         <li><a href="#"><span className="icon">⚙️</span>Project settings</a></li>
                     </ul>
                 </div>
-                <div className="main-view"> {/* Hauptansicht */}
-                    <h2>Backlog</h2> {/* Titel des Backlogs */}
-                    <div className="task"> {/* Einzelner Task */}
-                        <h3>Task 1</h3> {/* Titel des Tasks */}
+                <div className="main-view"> 
+                    <h2>Backlog</h2> 
+                    <div className="task"> 
+                        <h3>Task 1</h3> 
                         <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> {/* Beschreibung des Tasks */}
                     </div>
-                    <div className="task"> {/* Einzelner Task */}
-                        <h3>Task 2</h3> {/* Titel des Tasks */}
+                    <div className="task"> 
+                        <h3>Task 2</h3> 
                         <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> {/* Beschreibung des Tasks */}
                     </div>
                 </div>
             </div>
-            <footer className="footer"> {/* Fußzeile */}
-                <p>© {new Date().getFullYear()} Jira-Clone</p> {/* Copyright-Informationen */}
+            <footer className="footer"> 
+                <p>© {new Date().getFullYear()} Jira-Clone</p> 
             </footer>
         </div>
     );

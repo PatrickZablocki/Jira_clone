@@ -93,44 +93,57 @@ nav{
     width: 100%;
     height: 30px;
 }
-.LogInBtn{
+.logInBtn{
     border-radius: 10px;
     background: #327dec;
     border: 1px solid #327dec;
-    width: 60px;
+    width: 70px;
     height: 30px;
     color: white;
+    cursor: pointer;
 }
-.LogInBtn:hover{
+.logInBtn:hover{
     transform: translateY(-2px);
     transition: 0.5ms;
     box-shadow: 5px 5px 5px black;
 }
-.LogInBtn a{
-    color: white;
-    text-decoration: none;
-    font-size: 1rem;
-}
 /*  Hier kommen die EInstellungen für den LogOut Button */
-.LogOutBtn{
+.Benutzer-content,
+.status-content{
+    color:black;
+}
+.user-info {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+.logOutBtn{
     border-radius: 10px;
     background: #327dec;
     border: 1px solid #327dec;
-    width: 60px;
+    width: 80px;
     height: 30px;
     color: white;
 }
-
-
-
-
+.logOutBtn{
+    cursor: pointer;
+}
+.Benutzer-content {
+    margin-right: 10px;
+}
+.status-circle {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
 .settingBtn,
-.LogInBtn,
 .BellBtn,
 .QuestionBtn{
     margin-right: 12px;
     cursor: pointer;
     border-radius: 10px;
+    margin-top: 20px;
 }
 .QuestionBtn:hover{
     transform: translateY(-2px);
@@ -152,12 +165,11 @@ nav{
     width: 40px;
     height: 25px;
 }
-
 /* Hier eine Extra Styling für das Dropdown menu */
 .dropdown-menu {
     position: absolute;
     top: 100%;
-    right: 87px;
+    right: 15px;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -178,16 +190,13 @@ nav{
 .dropdown-menu ul li {
     padding: 5px 0;
 }
-
 .dropdown-menu ul li a {
     color: #333;
     text-decoration: none;
 }
-
 .dropdown-menu ul li a:hover {
     color: #000;
     font-weight: bold;
-
 }
 .dropdown-menu a:hover{
     background:#88888825;
@@ -200,7 +209,7 @@ nav{
 .bellDropdown{
     position: absolute;
     top: 100%;
-    right: 190px;
+    right: 115px;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -216,7 +225,7 @@ color: #000;
 .questionDropdown{
     position: absolute;
     top: 100%;
-    right: 137px;
+    right: 65px;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -231,23 +240,19 @@ color: #000;
 .questionDropdown h2{
     background: #b6b4b4;
     box-shadow: 5px 5px 5px #222;
-
 }
 .questionDropdown ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
-
 .questionDropdown ul li {
     padding: 5px 0;
 }
-
 .questionDropdown ul li a {
     color: #333;
     text-decoration: none;
 }
-
 .questionDropdown ul li a:hover {
     color: #000;
     font-weight: bold;
