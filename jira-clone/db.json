@@ -1,3 +1,9 @@
 {
-  "users": []
+  "users": [
+    {
+      "id": "e56c",
+      "username": "timomarz@gmail.com",
+      "password": "Timo1234!"
+    }
+  ]
 }
