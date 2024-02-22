@@ -1,18 +1,3 @@
 {
-  "users": [
-    {
-      "id": "fcd8",
-      "username": "timomarz92@gmail.com",
-      "password": "Timo1234!",
-      "profilePictureUrl": "",
-      "online":true
-    },
-    {
-      "id": "626d",
-      "username": "PatrickZablocki@gmx.de",
-      "password": "test1234",
-      "profilePictureUrl": "/ProfileImage/Logo/Profile1.png",
-      "online":true
-    }
-  ]
+  "users": []
 }
