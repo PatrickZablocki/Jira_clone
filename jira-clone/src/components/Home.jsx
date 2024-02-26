@@ -46,7 +46,7 @@ function Home() {
     const token = localStorage.getItem('token');
     if (token) {
         setIsLoggedIn(true);
-        axios.get('/db.json')
+        axios.get('../db.json')
         .then(response => {
             const userData = response.data.users.find(u => u.id === parseInt(token));
             setUser(userData);
@@ -101,7 +101,7 @@ function Home() {
                 </nav>
                 
                 <div className="Search">
-                    <span class="Search-icon">&#128269;</span>
+                    <span className="Search-icon">&#128269;</span>
                     <input className="Search-content" type="search" placeholder="Search"/>        
                 </div>
                 </div>
@@ -138,7 +138,7 @@ function Home() {
                         </div>
                     )}
                     <button className="settingBtn" onClick={toggleDropdown}>
-                        <span class="icon">⚙️</span>
+                        <span className="icon">⚙️</span>
                     </button>
                     {/* Hier beginnt das Dropdown menu für die Einstellungen  */}
                     {isDropdownOpen && (
