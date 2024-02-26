@@ -1,10 +1,135 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './Home.css';
+import ToDoColumn from './ToDoColumn';
+import InProgressColumn from './InProgressColumn';
+import CompletedColumn from '../components/CompletedColumn';
+import { Provider } from "react-redux";
+import themeContext from "../context/ThemeContext";
+import Create from './Create';
 
-function Home() {
+
+
+function Home() 
+{
+    const [modal, setModal] = useState(false);
+
+    const toggleModal = () => {
+        setModal(!modal);
+    };
+
+    if(modal) {
+        document.body.classList.add('active-modal')
+    } else {
+        document.body.classList.remove('active-modal')
+    }
+
+    const [allTodos, setAllTodos] = useState([]);
+    const [newProject, setNewProject] = useState('');
+    const [newDescription, setNewDescription] = useState('');
+    const [newSummary, setNewSummary] = useState('');
+    const [newIssue, setNewIssue] = useState('');
+    const [newOwner, setNewOwner] = useState('');
+    const [completedTodos, setCompletedTodos] = useState([]);
+    const [newStatus, setNewStatus] = useState('');
+    const [isCompletedScreen, setIsCompletedScreen] = useState(false);
+
+    const handleAddNewToDo = () => {
+        let newToDoObj = {
+            issue: newIssue,
+            project: newProject,
+            description: newDescription,
+            summary: newSummary,
+            owner: newOwner,
+            status: newStatus,
+            comments: [],
+        };
+
+        let updatedTodoArr = [...allTodos];
+        updatedTodoArr.push(newToDoObj);
+        setAllTodos(updatedTodoArr);
+        localStorage.setItem('todolist', JSON.stringify(updatedTodoArr));
+        setNewIssue('');
+        setNewProject('');
+        setNewDescription('');
+        setNewSummary('');
+        setNewOwner('');
+    };
+
+    useEffect(() => {
+        let savedTodos = JSON.parse(localStorage.getItem('todolist'));
+        let savedCompletedToDos = JSON.parse(
+            localStorage.getItem('completedTodos')
+        );
+        if (savedTodos) {
+            setAllTodos(savedTodos);
+        }
+
+        if (savedCompletedToDos) {
+            setCompletedTodos(savedCompletedToDos);
+        }
+    }, []);
+
+
+    const handleInProgress = index => {
+        let updatedTodos = [...allTodos];
+        updatedTodos[index].status = 'In Progress';
+        setAllTodos(updatedTodos);
+        localStorage.setItem('todolist', JSON.stringify(updatedTodos));
+    };
+
+    const handleToDoDelete = index => {
+        let reducedTodos = [...allTodos];
+        reducedTodos.splice(index, 1);
+        // console.log (index);
+
+        // console.log (reducedTodos);
+        localStorage.setItem('todolist', JSON.stringify(reducedTodos));
+        setAllTodos(reducedTodos);
+    };
+
+    const handleCompletedTodoDelete = index => {
+        let reducedCompletedTodos = [...completedTodos];
+        reducedCompletedTodos.splice(index);
+        // console.log (reducedCompletedTodos);
+        localStorage.setItem(
+            'completedTodos',
+            JSON.stringify(reducedCompletedTodos)
+        );
+        setCompletedTodos(reducedCompletedTodos);
+    };
+
+    const handleComplete = index => {
+        const date = new Date();
+        var dd = date.getDate();
+        var mm = date.getMonth() + 1;
+        var yyyy = date.getFullYear();
+        var hh = date.getHours();
+        var minutes = date.getMinutes();
+        var ss = date.getSeconds();
+        var finalDate =
+            dd + '-' + mm + '-' + yyyy + ' at ' + hh + ':' + minutes + ':' + ss;
+
+        let filteredTodo = {
+            ...allTodos[index],
+            completedOn: finalDate,
+        };
+
+        // console.log (filteredTodo);
+
+        let updatedCompletedList = [...completedTodos, filteredTodo];
+        console.log(updatedCompletedList);
+        setCompletedTodos(updatedCompletedList);
+        localStorage.setItem(
+            'completedTodos',
+            JSON.stringify(updatedCompletedList)
+        );
+        // console.log (index);
+
+        handleToDoDelete(index);
+    };
+
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [isBellDropdownOpen, setIsBellDropdownOpen] = useState(false);
     const [isQuestionDropdownOpen, setIsQuestionDropdownOpen] = useState(false);
@@ -46,7 +171,7 @@ function Home() {
     const token = localStorage.getItem('token');
     if (token) {
         setIsLoggedIn(true);
-        axios.get('../db.json')
+        axios.get('/db.json')
         .then(response => {
             const userData = response.data.users.find(u => u.id === parseInt(token));
             setUser(userData);
@@ -84,26 +209,115 @@ function Home() {
             {/* Hier beginnt der Header */}
             <header className="header">
                 <div className="header-content">
-                <nav className="navbar">
-                    <div className="header-content">
-                        <a href="/">
-                            <img className="Logo-Image" src="/LogoImage/Logo.png" alt="Logo from Jira" />
-                        </a>
+                    <nav className="navbar">
+                        <div className="header-content">
+                            <a href="/">
+                                <img className="Logo-Image" src="/LogoImage/Logo.png" alt="Logo from Jira" />
+                            </a>
+                        </div>
+                        <ul>
+                            <li><a href="#">Your Work</a></li>
+                            <li><a href="#">Projects</a></li>
+                            <li><a href="#">Filters</a></li>
+                            <li><a href="#">Dashboard</a></li>
+                            <li><a href="#">People</a></li>
+                            <button onClick={toggleModal} className="CreateBtn">
+                                Create
+                            </button>
+
+                            {modal && (
+                                <div className="modal">
+                                    <div onClick={toggleModal} className="overlay"></div>
+                                    <div className="modal-content">
+                                        <h1>Create Ticket</h1>
+
+                                        <div className="todo-wrapper">
+
+                                            <div className="todo-input-item">
+                                                <label>Project </label>
+                                                <select name='Project' id='project' value={newProject} onChange={e => setNewProject(e.target.value)}>
+                                                    <option value="Choose">Choose a project</option>
+                                                    <option value="Jira">Jira Clone</option>
+                                                    <option value="Netflix">Netflix Clone</option>
+                                                    <option value="Spotify">Spotify Clone</option>
+                                                </select>
+                                            </div>
+                                            <div className="todo-input-item">
+                                                <label>Issue Type </label>
+                                                <select type="text" value={newIssue} onChange={e => setNewIssue(e.target.value)}>
+                                                    <option value="Choose">What kind of Issue Type? </option>
+                                                    <option value="Bug">Bug</option>
+                                                    <option value="Task">Task</option>
+                                                    <option value="Risk">Risk</option>
+                                                    <option value="Story">Story</option>
+
+                                                </select>
+                                            </div>
+
+                                            <div className="todo-input-item">
+                                                <label>Summary </label>
+                                                <input type="text"
+                                                    value={newSummary}
+                                                    onChange={e => setNewSummary(e.target.value)}
+                                                />
+                                            </div>
+
+                                            <div className="todo-input-item">
+                                                <label>Description </label>
+                                                <input
+                                                    type="text"
+                                                    value={newDescription}
+                                                    onChange={e => setNewDescription(e.target.value)}
+                                                    
+                                                />
+                                            </div>
+
+                                            <div className="todo-input-item">
+                                                <label>Owner </label>
+                                                <select
+                                                    type="text"
+                                                    value={newOwner}
+                                                    onChange={e => setNewOwner(e.target.value)}
+                                                    
+                                                >
+                                                    <option value="Choose">Choose a owner</option>
+                                                    <option value="Patrick">Patrick</option>
+                                                    <option value="Asel">Asel</option>
+                                                    <option value="Timo">Timo</option> 
+                                                    <option value="Janis">Janis</option> 
+                                                    </select>
+                                            </div>
+                                            <div className="todo-input-item">
+                                                <label>Status </label>
+                                                <select value={newStatus} onChange={e => setNewStatus(e.target.value)}>
+                                                    <option value="Status">Status</option>
+                                                    <option value="ToDo">ToDo</option>
+                                                    <option value="In Progress">In Progress</option>
+                                                    <option value="Completed">Completed</option>
+                                                </select>
+                                            </div>
+                                            <div className="todo-input-item">
+                                                <button
+                                                    className="primary-btn"
+                                                    type="button"
+                                                    onClick={handleAddNewToDo}
+                                                >
+                                                    Create
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <button className="close-modal" onClick={toggleModal}>
+                                            CLOSE
+                                        </button>
+                                    </div>
+                                </div>
+                            )}
+                        </ul>
+                    </nav>
+                    <div className="Search">
+                        <span class="Search-icon">&#128269;</span>
+                        <input className="Search-content" type="search" placeholder="Search" />
                     </div>
-                    <ul>
-                        <li><a href="#">Your Work</a></li>
-                        <li><a href="#">Projects</a></li>
-                        <li><a href="#">Filters</a></li>
-                        <li><a href="#">Dashboard</a></li>
-                        <li><a href="#">People</a></li>
-                        <button className="CreateBtn"> Create</button>
-                    </ul>
-                </nav>
-                
-                <div className="Search">
-                    <span className="Search-icon">&#128269;</span>
-                    <input className="Search-content" type="search" placeholder="Search"/>        
-                </div>
                 </div>
                 
                 {/* Hier geht es mit der Navbar Weiter Wichtigster Punkt ist der LogIn bereich */}
@@ -138,7 +352,7 @@ function Home() {
                         </div>
                     )}
                     <button className="settingBtn" onClick={toggleDropdown}>
-                        <span className="icon">⚙️</span>
+                        <span class="icon">⚙️</span>
                     </button>
                     {/* Hier beginnt das Dropdown menu für die Einstellungen  */}
                     {isDropdownOpen && (
@@ -173,28 +387,29 @@ function Home() {
                 </div>
 
             </header>
-            <div className="content"> {/* Hauptinhalt der Seite */}
-                <div className="Sidebar"> {/* Seitenleiste */}
+            {/* Hier Hört der Header auf */}
+            {/* Hier geht die Sidebar los */}
+            <div className="content">
+                <div className="Sidebar">
                     <h2>Planning</h2>
                     <ul>
-                        <li><a href="#"><span className="icon">&#x1F4C5;</span>Timeline</a></li>
-                        <li><a href="#"><span className="icon">&#x1F4A1;</span>Backlog</a></li>
-                        <li><a href="#"><span className="icon">&#x1F5C3;</span>Board</a></li>
-                        <li className="line"></li>
-                        <li><a href="#"><span className="icon">&#x271A;</span>Add shortcut</a></li>
-                        <li><a href="#"><span className="icon">⚙️</span>Project settings</a></li>
+                        <li><a href="#"><span class="icon">&#x1F4C5;</span>Timeline</a></li>
+                        <li><a href="#"><span class="icon">&#x1F4A1;</span>Backlog</a></li>
+                        <li><a href="#"><span class="icon">&#x1F5C3;</span>Board</a></li>
+                        <li class="line"></li>
+                        <li><a href="#"><span class="icon">&#x271A;</span>Add shortcut</a></li>
+                        <li><a href="#"><span class="icon">⚙️</span>Project settings</a></li>
                     </ul>
                 </div>
-                <div className="main-view"> 
-                    <h2>Backlog</h2> 
-                    <div className="task"> 
-                        <h3>Task 1</h3> 
-                        <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> {/* Beschreibung des Tasks */}
-                    </div>
-                    <div className="task"> 
-                        <h3>Task 2</h3> 
-                        <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> {/* Beschreibung des Tasks */}
-                    </div>
+                {/* HIer endet die Sidebar */}
+                {/* Ab hier beginnt der Main Content */}
+                <div className="main-view">
+                
+                <div className="columns-wrapper">
+                    <ToDoColumn tasks={allTodos.filter(task => task.status === 'ToDo')} onDelete={handleToDoDelete} onComplete={handleComplete} />
+                    <InProgressColumn tasks={allTodos.filter(task => task.status === 'In Progress')} onDelete={handleToDoDelete} onComplete={handleComplete} />
+                    <CompletedColumn  tasks={allTodos.filter(task => task.status === 'Completed')} onDelete={handleCompletedTodoDelete} />
+                </div>
                 </div>
             </div>
             <footer className="footer"> 
