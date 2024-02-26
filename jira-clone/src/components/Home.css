@@ -112,6 +112,26 @@ nav {
 .LogInBtn {
   margin-right: 12px;
 }
+.hamburger-dropdown ul{
+  display: flex;
+  flex-direction: column;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #5193d4;
+  padding: 10px 0;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+ 
+
+}
+.hamburger-dropdown{
+  position: relative;
+}
+.Hamburger-menu{
+  top:calc(100% + .25rem) ;
+  
+}
 /* HIer endet das Styling für den Header und die Navabr */
 .Sidebar {
   background: #327cece1;
@@ -304,88 +324,7 @@ nav {
   display: none;
 } */
 
-/* @media only screen and (max-width: 480px) {
-  
-  .header {
-    display: flex;
-    flex-direction: column;
-  }
-  .header-content {
-    display: flex;
-    flex-direction: column;
-    white-space: nowrap;
-  }
 
-  .content {
-    display: flex;
-    flex-direction: column;
-    
-  }
-  .profile-container {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  
-} */
-@media only screen and (min-width: 370px)and (max-width: 480px) {
-  .header {
-    display: flex;
-    flex-direction: row;
-    width: 95%;
-  }
-
-  .Logo-Image {
-    width: 80px;
-    height: auto;
-  }
-
-  .navbar ul {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-  .navbar li {
-    white-space: nowrap;
-    font-size: 15px;
-  }
-  .CreateBtn {
-    max-width: 55px;
-    height: 20px;
-    font-size: 15px;
-  }
-  .LogInBtn {
-    max-width: 59px;
-    height: 22px;
-    white-space: nowrap;
-    border-radius: 15px;
-   
-  }
-  .Search-content {
-    max-width: 92px;
-    margin-bottom: 2px;
-    margin-left: 5px;
-    margin-right: -6px;
-    
-  }
-  .Search-icon {
-    padding-bottom: 2px;
-    
-  }
-  .settingBtn {
-    display: none;
-    margin-left: 40px;
-    margin-bottom: 2px;
-  }
-  .Sidebar {
-    display: flex;
-    flex-direction: column;
-    width: 25%;
-  }
-  .main-view {
-    display: none;
-  }
-}
 @media only screen and (min-width: 481px) and (max-width: 767px) {
   .header {
     display: flex;
@@ -399,7 +338,7 @@ nav {
   }
 
   .navbar ul {
-    display: flex;
+    display: none;
     flex-direction: row;
     align-items: center;
   }
@@ -435,6 +374,10 @@ nav {
     margin-left: 40px;
     margin-bottom: 2px;
   }
+  /* .Hamburger-menu {
+    display: flex;
+  } */
+  
   .Sidebar {
     display: flex;
     flex-direction: column;
@@ -486,6 +429,9 @@ nav {
     border-radius: 15px;
     margin-right: 50px;
   }
+  .Hamburger-menu {
+    display: none;
+  }
   .Sidebar {
     display: flex;
     flex-direction: column;
@@ -495,6 +441,7 @@ nav {
   }
 }
 @media only screen and (min-width: 1025px) and (max-width: 1280px) {
+  
   .header {
     display: flex;
     flex-direction: row;
@@ -535,6 +482,9 @@ nav {
     border-radius: 15px;
     margin-right: 50px;
   }
+  .Hamburger-menu {
+    display: none;
+  }
   .Sidebar {
     display: flex;
     flex-direction: column;
@@ -544,6 +494,9 @@ nav {
   }
 }
 @media (min-width: 1281px) {
+  .Hamburger-menu {
+    display: none;
+  }
   .Sidebar {
     display: flex;
     flex-direction: column;
