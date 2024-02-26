@@ -283,7 +283,7 @@ color: #000;
 .dark-mode .navbar li a {
     color: #fff;
 }
-
+/*  Dark Mode Optionen für die Buttons  in der Navbar */
 .dark-mode .dropdown-menu {
     background-color: #222;
     color: #fff;
@@ -291,6 +291,32 @@ color: #000;
 .dark-mode .dropdown-menu a{
     color: white;
 }
+.dark-mode 
+.BellBtn{
+    background: #327dec;
+}
+.dark-mode 
+.QuestionBtn{
+    background: #327dec;
+}
+.dark-mode 
+.settingBtn{
+    background: #327dec;
+}
+/* Hover effekt für die Buttons */
+.dark-mode .BellBtn:hover{
+    background: #53abdb;
+}
+.dark-mode .QuestionBtn:hover{
+    background: #53abdb;
+}
+.dark-mode .settingBtn:hover{
+    background: #53abdb;
+}
+.dark-mode input {
+    background: #575757;
+}
+/*  Hier geht es mit dem Style weiter für die SIdebar */
 .dark-mode .Sidebar{
     background-color: #222;
     color: #fff;
@@ -313,6 +339,36 @@ color: #000;
     color: #fff;
 }
 .dark-mode .bellDropdown h2,p{
+    color: #fff;
+}
+/*  Hier stylen wir den Dark Mode für das Ticket System  */
+.dark-mode .task{
+    background-color: #222;
+    color: #fff;
+}
+.dark-mode .todo-input-item{
+    background-color: #222;
+    color: #fff;
+}
+.dark-mode .todo-input-item{
+    background-color: #53abdb;
+    color: #fff;
+}
+.dark-mode .todo-wrapper{
+    background-color: #222;
+    color: #fff;
+}
+.dark-mode .card-header {
+    background: #0052cc;
+}
+.dark-mode .modal-content {
+    background-color: #6b6969;
+    color: #fff;
+}
+.dark-mode .task:hover{
+    background: #5a5959;
+}
+.dark-mode .task p{
     color: #fff;
 }
 /* Extra Einstellung für das Zahnrad */
@@ -507,7 +563,7 @@ body.active-modal {
   padding: 5px 7px;
 
   background: #327DEC;
-  color: white;
+  color:    #fff;
   border: 2px solid #327DEC;
   width: 80px;
   height: 35px;
@@ -543,10 +599,10 @@ body.active-modal {
 }
 
 .card-header {
-  background-color: #f0f0f0;
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
-  border-radius: 5px 5px 0 0;
+background-color: #f0f0f0;
+padding: 10px;
+border-bottom: 1px solid #ccc;
+border-radius: 5px 5px 0 0;
 }
 
 .card-body {
@@ -554,11 +610,12 @@ body.active-modal {
 }
 
 .task {
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
-}
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    color: #000;
+  }
 
 .btn {
   cursor: pointer;
@@ -575,12 +632,13 @@ body.active-modal {
 
 
 .task {
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
-  background-color: #fff;
-}
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #fff;
+    color: #000;
+  }
 
 .task:hover {
   background-color: #f5f5f5;
@@ -592,4 +650,5 @@ body.active-modal {
 
 .task p {
  text-align: start;
+ color: #000;
 }
