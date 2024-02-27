@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
 import LoginPage from './components/LoginPage';
-import RegisterPage from './components/RegisterPage'; // This line should only appear once
+import RegisterPage from './components/RegisterPage'; 
 import ResetPage from './components/ResetPage';
 import Profile from './components/Profile/Profile';
 
