@@ -1,9 +1,3 @@
 {
-  "users": [
-    {
-      "id": "4084",
-      "username": "hanspeter@web.de",
-      "password": "Hans1234"
-    }
-  ]
+  "users": []
 }
