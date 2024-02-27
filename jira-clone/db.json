@@ -1,3 +1,9 @@
 {
-  "users": []
+  "users": [
+    {
+      "id": "1234",
+      "username": "peterklein@icloud.com",
+      "password": "peterpeter"
+    }
+  ]
 }
