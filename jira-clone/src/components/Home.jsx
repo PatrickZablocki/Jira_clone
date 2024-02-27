@@ -316,7 +316,7 @@ function Home()
                         </ul>
                     </nav>
                     <div className="Search">
-                        <span class="Search-icon">&#128269;</span>
+                        <span className="Search-icon">&#128269;</span>
                         <input className="Search-content" type="search" placeholder="Search" />
                     </div>
                 </div>
