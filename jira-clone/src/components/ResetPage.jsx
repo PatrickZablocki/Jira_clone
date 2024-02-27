@@ -8,8 +8,28 @@ function PasswordResetPage() {
 
   const handleResetPassword = async (e) => {
     e.preventDefault();
-    // Implementieren Sie hier die Logik, um den Passwort-Reset-Link zu senden
-    console.log('Passwort-Reset-Link wird gesendet an: ', email);
+    try {
+      const response = await fetch('/api/password-reset', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+  
+      const data = await response.json(); // Versucht, die Antwort als JSON zu parsen
+  
+      if (response.ok) {
+        console.log('Passwort-Reset-Link wurde gesendet an: ', email);
+        // Erfolgsmeldung oder Navigation
+      } else {
+        console.error('Fehler beim Senden des Passwort-Reset-Links: ', data.message);
+        // Hier könnten Sie eine Fehlermeldung anzeigen, basierend auf der Antwort des Servers
+      }
+    } catch (error) {
+      console.error('Fehler beim Senden des Passwort-Reset-Links:', error);
+      // Hier könnten Sie eine Fehlermeldung anzeigen
+    }
   };
 
   const goBackToLogin = () => {
