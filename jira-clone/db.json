@@ -1,14 +1,3 @@
 {
-  "users": [
-    {
-      "id": "9970",
-      "username": "Timomarz@gmail.com",
-      "password": "test1234"
-    },
-    {
-      "id": "0e80",
-      "username": "test1234@web.de",
-      "password": "test1"
-    }
-  ]
+  "users": []
 }
