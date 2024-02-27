@@ -61,7 +61,7 @@ function PasswordResetPage() {
           <img src="/LogoImage/logoatlassin.png" alt="Atlassian Logo" className={styles.footerLogo} />
           <p className={styles.logoSubtext}>Ein Konto für Jira, Confluence, Trello und <span className={styles.blueText}>mehr.</span></p>
           <div className={styles.footerLinks}>
-            <a href="/help" className={styles.link}>Hilfe zum Login</a> • <a href="/support" className={styles.link}>Support kontaktieren</a>
+            <a href="https://support.atlassian.com/atlassian-account/docs/troubleshoot-login-issues-with-your-atlassian-account/" className={styles.link}>Hilfe zum Login</a> • <a href="https://support.atlassian.com/" className={styles.link}>Support kontaktieren</a>
           </div>
         </div>
       </div>

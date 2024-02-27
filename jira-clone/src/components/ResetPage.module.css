@@ -27,7 +27,7 @@
 }
 
 .logoSubtext {
-  color: #5E6C84;
+  color: rgb(23, 43, 77);
   font-size: 14px;
   margin-top: 0px;
 }
@@ -83,6 +83,14 @@
   font-size: 14px;
 }
 
+.backButton:hover {
+  text-decoration:underline
+}
+
+.backButton:hover {
+  background: none;
+}
+
 .separator {
   height: 1px;
   background-color:#5e6c84 ;
@@ -112,9 +120,17 @@
 .link {
   text-decoration: none;
   font-size: 14px;
-  text-decoration-color: #5E6C84;
+  text-decoration-color: rgb(23, 43, 77);
+}
+
+.link:hover {
+  text-decoration:underline
 }
 
 .blueText {
   color: #0052CC; 
+}
+
+.blueText:hover {
+  text-decoration:underline
 }
