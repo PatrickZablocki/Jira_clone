@@ -8,6 +8,7 @@ import CompletedColumn from '../components/CompletedColumn';
 import { Provider } from "react-redux";
 import themeContext from "../context/ThemeContext";
 import Create from './Create';
+import Team from './Team/Team';
 
 
 
@@ -220,7 +221,7 @@ function Home()
                             <li><a href="#">Projects</a></li>
                             <li><a href="#">Filters</a></li>
                             <li><a href="#">Dashboard</a></li>
-                            <li><a href="#">People</a></li>
+                            <li><link to= "/Team"/><a href="Team">People</a></li>
                             <button onClick={toggleModal} className="CreateBtn">
                                 Create
                             </button>
