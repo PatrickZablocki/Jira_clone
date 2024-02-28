@@ -1,0 +1,19 @@
+body{
+    background: #fff;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+.header button {
+    background: #327dec;
+    width: 100px;
+    height: 40px;
+    border-radius: 20px;
+    color: white;
+    margin-top: 12px;
+}
+.input_content{
+    display: flex;
+    width: 70%;
+}

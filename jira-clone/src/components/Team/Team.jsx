@@ -15,7 +15,7 @@ const Team = () => {
                 </div>
                 <div className={styles.Member_container}>
                     <img className={styles.Member_image} src="https://avatars.githubusercontent.com/u/135604706?v=4" alt="" />
-                        <h2>Jannis</h2>
+                        <h2>Janis</h2>
                     <div className={styles.Member_info}>
                         <p>Designerin</p>
                     </div>
@@ -36,7 +36,7 @@ const Team = () => {
                 </div>
             </div>
             <footer className={styles.footer}>
-                ©   Jira Project by Asel, Jannis, Timo & Patrick
+                ©   Jira Project by Asel, Janis, Timo & Patrick
             </footer>
         </div>
     );
