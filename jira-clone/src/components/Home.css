@@ -80,7 +80,6 @@ nav{
 .Search {
     position: relative;
 }
-
 .Search-icon {
     position: absolute; 
     top: 50%; 
@@ -91,27 +90,310 @@ nav{
 }
 .Search-content{
     padding-left: 30px;
+    width: 100%;
+    height: 30px;
 }
-.LogInBtn{
+.logInBtn{
     border-radius: 10px;
     background: #327dec;
     border: 1px solid #327dec;
+    width: 70px;
+    height: 30px;
+    color: white;
+    cursor: pointer;
 }
-.LogInBtn:hover{
+.logInBtn:hover{
     transform: translateY(-2px);
     transition: 0.5ms;
     box-shadow: 5px 5px 5px black;
 }
-.LogInBtn a{
+/*  Hier kommen die EInstellungen für den LogOut Button */
+.Benutzer-content,
+.status-content{
+    color:black;
+}
+.user-info {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+.logOutBtn{
+    border-radius: 10px;
+    background: #327dec;
+    border: 1px solid #327dec;
+    width: 80px;
+    height: 30px;
     color: white;
-    text-decoration: none;
-    font-size: 1rem;
+}
+.logOutBtn{
+    cursor: pointer;
+}
+.Benutzer-content {
+    margin-right: 10px;
+}
+.status-circle {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 10px;
 }
 .settingBtn,
-.LogInBtn {
+.BellBtn,
+.QuestionBtn{
     margin-right: 12px;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+.QuestionBtn:hover{
+    transform: translateY(-2px);
+    transition: 0.5ms;
+    box-shadow: 5px 5px 5px black;
+    background: #327dec;
+}
+.BellBtn:hover{
+    transform: translateY(-2px);
+    transition: 0.5ms;
+    box-shadow: 5px 5px 5px black;
+    background: #327dec;
+}
+.BellBtn{
+    width: 40px;
+    height: 25px;
+}
+.QuestionBtn{
+    width: 40px;
+    height: 25px;
+}
+/* Hier eine Extra Styling für das Dropdown menu */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 15px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    display: inline-block;
+    width: 500px;
+    height: auto;
+}
+.dropdown-menu h2{
+    color: #000;
+}
+.dropdown-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-menu ul li {
+    padding: 5px 0;
+}
+.dropdown-menu ul li a {
+    color: #333;
+    text-decoration: none;
+}
+.dropdown-menu ul li a:hover {
+    color: #000;
+    font-weight: bold;
+}
+.dropdown-menu a:hover{
+    background:#88888825;
+    width: calc(100% - 40px);
+    display: block;
+    padding: 10px 20px;
+    border: 2px solid #888;
+}
+/* dropdown für die Benachrittigung */
+.bellDropdown{
+    position: absolute;
+    top: 100%;
+    right: 115px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    display: inline-block;
+    width: 500px;
+    height: auto;
+}
+.bellDropdown h2,p {
+color: #000;
+}
+/* Styling für die Question  */
+.questionDropdown{
+    position: absolute;
+    top: 100%;
+    right: 65px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    display: inline-block;
+    width: 500px;
+    height: auto;
+}
+.questionDropdown h2,ul,li,a{
+color: #000;
+}
+.questionDropdown h2{
+    background: #b6b4b4;
+    box-shadow: 5px 5px 5px #222;
+}
+.questionDropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.questionDropdown ul li {
+    padding: 5px 0;
+}
+.questionDropdown ul li a {
+    color: #333;
+    text-decoration: none;
+}
+.questionDropdown ul li a:hover {
+    color: #000;
+    font-weight: bold;
+}
+.questionDropdown a:hover{
+    background:#88888825;
+    width: calc(100% - 40px);
+    display: block;
+    padding: 10px 20px;
+    border: 2px solid #888;;
+}
+#DarkMode{
+    font-size: 1.2rem;
+    border-radius: 10px;
+    font-weight: 600;
 }
 /* HIer endet das Styling für den Header und die Navabr */
+/* Extra Style für den Dark Mode */
+.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+.dark-mode .header {
+    background-color: #111;
+    color: #fff;
+}
+
+.dark-mode .navbar li a {
+    color: #fff;
+}
+/*  Dark Mode Optionen für die Buttons  in der Navbar */
+.dark-mode .dropdown-menu {
+    background-color: #222;
+    color: #fff;
+}
+.dark-mode .dropdown-menu a{
+    color: white;
+}
+.dark-mode 
+.BellBtn{
+    background: #327dec;
+}
+.dark-mode 
+.QuestionBtn{
+    background: #327dec;
+}
+.dark-mode 
+.settingBtn{
+    background: #327dec;
+}
+/* Hover effekt für die Buttons */
+.dark-mode .BellBtn:hover{
+    background: #53abdb;
+}
+.dark-mode .QuestionBtn:hover{
+    background: #53abdb;
+}
+.dark-mode .settingBtn:hover{
+    background: #53abdb;
+}
+.dark-mode input {
+    background: #575757;
+}
+
+
+/*  Hier geht es mit dem Style weiter für die SIdebar */
+.dark-mode .Sidebar{
+    background-color: #222;
+    color: #fff;
+}
+.dark-mode .Sidebar li a{
+    color: white;
+}
+.dark-mode .dropdown-menu h2{
+    color: #fff;
+}
+.dark-mode .questionDropdown{
+    background-color: #222;
+    color: #fff;
+}
+.dark-mode .questionDropdown a{
+    color: #fff;
+}
+.dark-mode .bellDropdown{
+    background-color: #222;
+    color: #fff;
+}
+.dark-mode .bellDropdown h2,p{
+    color: #fff;
+}
+/*  Hier stylen wir den Dark Mode für das Ticket System  */
+.dark-mode .task{
+    background-color: #222;
+    color: #fff;
+}
+
+/* .dark-mode .todo-input-item{
+    background-color: #222;
+    color: #fff;
+} */
+
+.dark-mode .todo-input-item{
+    background-color: #6b6969;
+    color: #fff;
+    border: none;
+}
+.dark-mode .todo-wrapper{
+    background-color: #222;
+    color: #fff;
+}
+.dark-mode .card-header {
+    background: #0052cc;
+}
+.dark-mode .modal-content {
+    background-color: #6b6969;
+    color: #fff;
+}
+.dark-mode .task:hover{
+    background: #5a5959;
+}
+.dark-mode .task p{
+    color: #fff;
+}
+/* Extra Einstellung für das Zahnrad */
+.icon {
+    display: inline-block;
+    font-size: 18px;
+    transition: transform 0.5s ease;
+}
+.icon:hover {
+    animation: rotate 2s linear infinite;
+}
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+/*  Hier beginnt das Styling für die Sidebar */
 .Sidebar {
     background: #ededed;
     width: 200px;
@@ -131,6 +413,7 @@ nav{
     width: calc(100% - 40px);
     display: block;
     padding: 10px 20px;
+    border: 2px solid #0052cc;
 }
 .Sidebar li a {
     text-decoration: none;
@@ -158,8 +441,6 @@ nav{
 .Sidebar ul li a .icon {
     margin-right: 10px;
 }
-/*  Hier beginnt das Styling für die Sidebar */
-
 /* Hier endet das Styling für die Sidebar */
 
 /* Hier beginnt der Main Content */
@@ -187,6 +468,7 @@ nav{
     padding: 10px;
     text-align: center;
     margin-top: auto;
+    width: auto;
 }
 
 
@@ -287,7 +569,7 @@ body.active-modal {
   padding: 5px 7px;
 
   background: #327DEC;
-  color: white;
+  color:    #fff;
   border: 2px solid #327DEC;
   width: 80px;
   height: 35px;
@@ -323,10 +605,10 @@ body.active-modal {
 }
 
 .card-header {
-  background-color: #f0f0f0;
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
-  border-radius: 5px 5px 0 0;
+background-color: #f0f0f0;
+padding: 10px;
+border-bottom: 1px solid #ccc;
+border-radius: 5px 5px 0 0;
 }
 
 .card-body {
@@ -334,11 +616,12 @@ body.active-modal {
 }
 
 .task {
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
-}
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    color: #000;
+  }
 
 .btn {
   cursor: pointer;
@@ -355,12 +638,13 @@ body.active-modal {
 
 
 .task {
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
-  background-color: #fff;
-}
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #fff;
+    color: #000;
+  }
 
 .task:hover {
   background-color: #f5f5f5;
@@ -372,4 +656,5 @@ body.active-modal {
 
 .task p {
  text-align: start;
+ color: #000;
 }

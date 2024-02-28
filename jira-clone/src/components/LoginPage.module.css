@@ -1,0 +1,199 @@
+.loginPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: rgb(167, 167, 167); 
+  padding: 0px; 
+}
+
+.formContainer {
+  max-width: 400px; 
+  width: 100%; 
+  margin: auto; 
+  padding: 30px; 
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(233, 225, 225, 0.15);
+  text-align: center;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: black; 
+}
+
+.input,
+.submitButton,
+.googleButton,
+.microsoftButton,
+.appleButton,
+.slackButton {
+  width: 100%; 
+  box-sizing: border-box; 
+}
+
+.input,
+.googleButton,
+.microsoftButton,
+.appleButton,
+.slackButton {
+  padding: 12px;
+  border: 2px solid #dfe1e6; 
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+.input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.input:hover {
+  background-color: #f5f5f5; 
+}
+
+.submitButton {
+  padding: 10px 0; 
+  border: none;
+  border-radius: 3px;
+  background-color: #0052cc;
+  color: white;
+  font-size: 16px;
+  margin-bottom: 5px; 
+}
+
+.submitButton:hover {
+  background-color: #007bff;
+}
+
+.alternativeOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.googleButton,
+.microsoftButton,
+.appleButton,
+.slackButton {
+  background-color: #ffffff; 
+  color: #5e6c84; 
+  border: 2px solid #dfe1e6; 
+  cursor: pointer;
+}
+
+
+.googleButton:hover,
+.microsoftButton:hover,
+.appleButton:hover,
+.slackButton:hover {
+  background-color: #f5f5f5; 
+}
+
+.loginFooter {
+  font-size: 14px;
+  color: #5e6c84; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-bottom: 1px solid #5e6c84; 
+  padding-bottom: 20px; 
+  margin-top: 10px;
+  margin-bottom: 25px; 
+}
+
+.loginFooter a {
+  color: #5e6c84; 
+  text-decoration: none; 
+}
+
+.errorMessage {
+  color: red; 
+  margin-bottom: 20px;
+}
+
+.authImage {
+  height: 24px; 
+  width: auto; 
+  vertical-align: middle; 
+  margin-right: 8px;
+}
+
+.logoContainer {
+  margin-bottom: 20px; 
+}
+
+.logoImage {
+  max-width: 100%; 
+  height: 40px; 
+}
+
+.footerImage {
+  width: 140px; 
+  height: auto; 
+  display: block; 
+  margin: 0 auto; 
+}
+
+.accountText {
+  font-size: 12px; 
+  color: #5e6c84; 
+  text-align: center; 
+  margin-top: 8px;
+}
+
+.privacyPolicyText {
+  font-size: 12px; 
+  color: #5e6c84; 
+  text-align: center;
+  margin-top: 4px;
+}
+
+.separatorText {
+  margin-top: 20px;
+}
+
+.continueWithText {
+  color: #5e6c84; 
+}
+
+.footer {
+  text-align: center;
+  margin-top: 20px; 
+}
+
+.blueText {
+  color: #0052CC; 
+}
+
+.loginFooter a.blueText {
+  color: #0052CC; 
+}
+
+.loginFooter a:hover {
+  text-decoration: underline;
+}
+
+.passwordToggle {
+  background: transparent;
+  border: none;
+  position: absolute;
+  right: 10px; 
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.passwordInputGroup {
+  position: relative;
+}
