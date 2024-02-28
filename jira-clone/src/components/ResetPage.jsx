@@ -4,10 +4,12 @@ import styles from './ResetPage.module.css';
 
 function PasswordResetPage() {
   const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
   const navigate = useNavigate();
 
   const handleResetPassword = async (e) => {
     e.preventDefault();
+    setMessage('');
     try {
       const response = await fetch('/api/password-reset', {
         method: 'POST',
@@ -16,19 +18,16 @@ function PasswordResetPage() {
         },
         body: JSON.stringify({ email }),
       });
-  
-      const data = await response.json(); // Versucht, die Antwort als JSON zu parsen
-  
+
+      const data = await response.json();
+
       if (response.ok) {
-        console.log('Passwort-Reset-Link wurde gesendet an: ', email);
-        // Erfolgsmeldung oder Navigation
+        setMessage(`Ein Wiederherstellungslink wurde an ${email} gesendet. Bitte überprüfen Sie Ihr Postfach.`);
       } else {
-        console.error('Fehler beim Senden des Passwort-Reset-Links: ', data.message);
-        // Hier könnten Sie eine Fehlermeldung anzeigen, basierend auf der Antwort des Servers
+        setMessage(`Fehler: ${data.message || 'Fehler beim Senden des Passwort-Reset-Links.'}`);
       }
     } catch (error) {
-      console.error('Fehler beim Senden des Passwort-Reset-Links:', error);
-      // Hier könnten Sie eine Fehlermeldung anzeigen
+      setMessage('Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.');
     }
   };
 
@@ -55,11 +54,12 @@ function PasswordResetPage() {
           />
           <button type="submit" className={styles.button}>Wiederherstellungslink senden</button>
         </form>
+        {message && <p className={styles.message}>{message}</p>}
         <button onClick={goBackToLogin} className={styles.backButton}>Zurück zum Login</button>
         <div className={styles.separator}></div>
         <div className={styles.footer}>
           <img src="/LogoImage/logoatlassin.png" alt="Atlassian Logo" className={styles.footerLogo} />
-          <p className={styles.logoSubtext}>Ein Konto für Jira, Confluence, Trello und <span className={styles.blueText}>mehr.</span></p>
+          <p className={styles.logoSubtext}>Ein Konto für Jira, Confluence, Trello und mehr.</p>
           <div className={styles.footerLinks}>
             <a href="https://support.atlassian.com/atlassian-account/docs/troubleshoot-login-issues-with-your-atlassian-account/" className={styles.link}>Hilfe zum Login</a> • <a href="https://support.atlassian.com/" className={styles.link}>Support kontaktieren</a>
           </div>
