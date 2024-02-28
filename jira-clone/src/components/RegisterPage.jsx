@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './RegisterPage.module.css';
+import { FaEye, FaEyeSlash } from 'react-icons/fa'; 
 
 function RegisterPage() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [passwordVisible, setPasswordVisible] = useState(false); 
     const [registrationError, setRegistrationError] = useState('');
     const navigate = useNavigate();
 
@@ -36,6 +38,10 @@ function RegisterPage() {
         }
     };
 
+const togglePasswordVisibility = () => {
+        setPasswordVisible(!passwordVisible); 
+    };
+
     const navigateToLogin = () => {
         navigate('/login');
     };
@@ -58,14 +64,21 @@ function RegisterPage() {
                     />
                 </div>
                 <div className={styles.formGroup}>
-                    <input
-                        type="password"
-                        className={styles.input}
-                        placeholder="Passwort eingeben"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                    />
+            
+                <input
+                    type={passwordVisible ? "text" : "password"}
+                    className={styles.input}
+                    placeholder="Passwort eingeben"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required/>
+                <button
+                    type="button"
+                    onClick={togglePasswordVisibility}
+                    className={styles.passwordToggle}>
+                    {passwordVisible ? <FaEyeSlash /> : <FaEye />}
+                </button>
+                
                 </div>
                 {registrationError && <div className={styles.errorMessage}>{registrationError}</div>}
                 <div className={styles.registrationText}>

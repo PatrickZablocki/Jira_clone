@@ -135,7 +135,7 @@
 
 .logoImage {
   max-width: 100%; 
-  height: 48px; 
+  height: 40px; 
 }
 
 .footerImage {
@@ -182,4 +182,18 @@
 
 .loginFooter a:hover {
   text-decoration: underline;
+}
+
+.passwordToggle {
+  background: transparent;
+  border: none;
+  position: absolute;
+  right: 10px; 
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.passwordInputGroup {
+  position: relative;
 }
