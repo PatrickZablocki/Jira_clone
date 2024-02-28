@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import styles from './ResetPage.module.css'; // Stellen Sie sicher, dass Sie die entsprechenden CSS-Styles haben
+import styles from './ResetPage.module.css';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 function PasswordResetPage() {
   const [email, setEmail] = useState('');

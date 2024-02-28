@@ -1,3 +1,9 @@
 {
-  "users": []
+  "users": [
+    {
+      "username": "",
+      "password": "",
+      "online": false
+    }
+  ]
 }

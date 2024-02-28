@@ -1,14 +1,14 @@
 body {
-    background-image: url('https://www.eficode.com/hubfs/images/blogs/Imported_Blog_Media/jira-software-tips3.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-image:url('https://wac-cdn.atlassian.com/dam/jcr:48f73fa9-325e-4663-a743-daba2a0f1397/jira-social%20@2x.png') ;
     width: 100%;
     height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
     margin: 0;
     padding: 0;
 }
 .headline{
-    color: #151515;
+    color: #fff;
     display: flex;
     justify-content: center;
     margin-top: 50px;
@@ -20,7 +20,7 @@ body {
     justify-content: space-evenly;    
 }
 .Content_container h2{
-    color: #222;
+    color: #fff;
     display: flex;
     justify-content: center;
     font-size: 2rem;
@@ -60,7 +60,7 @@ body {
 }
 .footer {
     background-color: #1b9be081;
-    color: #222;
+    color: #fff;
     text-shadow: 10px 10px 10px black;
     text-align: center;
     padding: 20px;
